@@ -70,11 +70,34 @@
   --radius-lg: 24px;
   --radius-full: 999px;
 
-  /* Typography */
-  --font-display: "BN Dime Display Regular", "Bungee", sans-serif;
-  --font-body: "Inter", "Nunito", sans-serif;
+  /* Typography Tokens (from new.css) */
+  --text-9: 9px;
+  --text-12: 12px;
+  --text-14: 14px;
+  --text-25: 25px;
+  --text-32: 32px;
+  --text-48: 48px;
+  --text-100: 100px;
+  --text-120: 120px;
+  --text-180: 180px;
+
+  --tracking-1-8: 1.8px;
+  --tracking-1-2: 1.2px;
+  --tracking-0-5: 0.5px;
+  --tracking-0-25: 0.25px;
+  --tracking-0-18: 0.18px;
+
+  /* Font Families */
+  --font-bn-dime-display-regular: 'BN Dime Display Regular', sans-serif;
+  --font-homemade-apple: 'Homemade Apple', sans-serif;
+  --font-sans-serif: sans-serif, serif;
+  --font-helvetica-neue: 'Helvetica Neue', sans-serif;
+
+  /* Aliases */
+  --font-display: var(--font-bn-dime-display-regular);
+  --font-script: var(--font-homemade-apple);
+  --font-body: var(--font-helvetica-neue);
   --font-strong: "Archivo", sans-serif;
-  --font-script: "Caveat", cursive;
 
   /* Spacing scale */
   --space-xs: 8px;
