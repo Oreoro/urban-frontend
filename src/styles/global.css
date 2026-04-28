@@ -159,6 +159,14 @@
     letter-spacing: var(--tracking-0-18);
 }
 
+.sticker {
+  filter: drop-shadow(0 0 0 4px var(--color-white)) drop-shadow(var(--shadow-sm));
+  transition: transform 300ms ease;
+  display: inline-block;
+}
+
+.sticker:hover { transform: scale(1.1) rotate(3deg); }
+
 
 * { box-sizing: border-box; }
 
