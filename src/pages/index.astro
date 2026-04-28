@@ -1,0 +1,189 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { site } from "@content/site";
+import { home } from "@content/home";
+---
+
+<Layout title={site.title} description={site.description} canonical="/">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-section" id="start">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">{home.hero.eyebrow}</p>
+      <h1 class="hero-title">{home.hero.title}</h1>
+      <p style="font-size: clamp(16px,2vw,20px); color: var(--ink-soft); max-width: 580px;">{home.hero.sub}</p>
+      <div class="cta-row">
+        <a class="pill-button" href={home.hero.primaryCtaHref} id="hero-app-store-cta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          {home.hero.primaryCta}
+        </a>
+      </div>
+
+      <!-- Phone mockups -->
+      <div class="phones" aria-hidden="true">
+        <div class="phone phone-1" style="background: var(--cream);"></div>
+        <div class="phone phone-2" style="background: var(--white);"></div>
+        <div class="phone phone-3" style="background: var(--lavender);"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE (yellow) ===== -->
+  <section class="marquee-section">
+    <div class="marquee-inner">
+      <p class="marquee-text" data-reveal>{home.marquee}</p>
+      <p class="marquee-tag" data-reveal>
+        <span style="font-family: var(--font-script); font-size: clamp(20px,3vw,32px);">{home.marqueeTag}</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES (cream) ===== -->
+  <section class="section-features">
+    <div class="features-inner">
+      <h2 class="features-heading" data-reveal>{home.features.heading}</h2>
+      <div class="features-grid">
+        <!-- Main feature card (pink) -->
+        <div class="feature-main-card" data-reveal>
+          <h3>{home.features.main}</h3>
+        </div>
+        <!-- Chip scroller (lavender) -->
+        <div class="todo-scroll" data-reveal aria-label="Activity ideas scroller">
+          <div class="todo-track" aria-hidden="true">
+            {home.features.todoItems.map(item => (
+              <span class="todo-chip">{item}</span>
+            ))}
+            {/* Duplicate for seamless loop */}
+            {home.features.todoItems.map(item => (
+              <span class="todo-chip">{item}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISSION (cyan) ===== -->
+  <section class="section-mission">
+    <div class="floating-items" aria-hidden="true">
+      <div class="float-item float-item-1">
+        <span style="font-size: 48px;">🧸</span>
+        <span class="float-label">Toys</span>
+      </div>
+      <div class="float-item float-item-2">
+        <span style="font-size: 48px;">🎨</span>
+        <span class="float-label">Art</span>
+      </div>
+      <div class="float-item float-item-3">
+        <span style="font-size: 48px;">🛝</span>
+        <span class="float-label">Playgrounds</span>
+      </div>
+      <div class="float-item float-item-4">
+        <span style="font-size: 48px;">🎵</span>
+        <span class="float-label">Music</span>
+      </div>
+      <div class="float-item float-item-5">
+        <span style="font-size: 48px;">📚</span>
+        <span class="float-label">Story Time</span>
+      </div>
+    </div>
+    <div class="mission-inner">
+      <h2 class="mission-heading" data-reveal>{home.mission.heading}</h2>
+      <p class="mission-sub" data-reveal>{home.mission.sub}</p>
+    </div>
+  </section>
+
+  <!-- ===== ORIGIN (peach) ===== -->
+  <section class="section-origin">
+    <div class="origin-inner">
+      <p class="origin-intro" data-reveal>{home.origin.intro}</p>
+      <h2 class="origin-headline" data-reveal>{home.origin.headline}</h2>
+      <p style="font-size: clamp(16px,2vw,20px); color: var(--ink-soft); max-width: 600px;" data-reveal>{home.origin.body}</p>
+      <a class="pill-button" href={home.origin.ctaHref} id="origin-about-cta" data-reveal
+        style="background: var(--white); color: var(--ink);">
+        {home.origin.ctaLabel}
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== STATS (cream) ===== -->
+  <section class="section-stats">
+    <div class="stats-inner">
+      <div class="stats-headline" data-reveal>
+        <span class="stats-prefix">{home.stats.prefix}</span>
+        <span class="stats-count">{home.stats.count.toLocaleString()}+</span>
+      </div>
+      <p class="stats-suffix" data-reveal>{home.stats.suffix}</p>
+      <p class="stats-tag" data-reveal>{home.stats.tag}</p>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA (mint) ===== -->
+  <section class="section-final-cta">
+    <div class="final-cta-inner">
+      <h2 data-reveal>{home.cta.heading}</h2>
+      <div class="cta-row" data-reveal>
+        <a class="pill-button" href={home.cta.primaryCtaHref} id="footer-app-store-cta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          {home.cta.primaryCta}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Phone mockups */
+  .phones {
+    position: relative;
+    height: 380px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .phone {
+    width: 190px;
+    height: 370px;
+    border-radius: var(--radius-xl);
+    border: 3px solid var(--ink);
+    box-shadow: var(--shadow);
+    position: absolute;
+  }
+
+  .phone-1 {
+    --rot: rotate(-8deg) translateX(-180px);
+    transform: var(--rot);
+    animation: phone-float 5s ease-in-out infinite 0.5s;
+  }
+
+  .phone-2 {
+    z-index: 2;
+    animation: phone-float 4s ease-in-out infinite;
+  }
+
+  .phone-3 {
+    --rot: rotate(8deg) translateX(180px);
+    transform: var(--rot);
+    animation: phone-float 6s ease-in-out infinite 1s;
+  }
+
+  @keyframes phone-float {
+    0%, 100% { transform: var(--rot, translateY(0)); }
+    50% { transform: var(--rot, translateY(0)) translateY(-12px); }
+  }
+
+  @media (max-width: 600px) {
+    .phone { width: 130px; height: 260px; }
+    .phones { height: 300px; }
+    .phone-1 { --rot: rotate(-8deg) translateX(-100px); }
+    .phone-3 { --rot: rotate(8deg) translateX(100px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .phone-1, .phone-2, .phone-3 { animation: none; }
+  }
+</style>

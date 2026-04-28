@@ -1,0 +1,60 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { site } from "@content/site";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  bodyClass?: string;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  canonical = Astro.url.pathname,
+  ogImage = site.ogImage,
+  bodyClass = ""
+} = Astro.props;
+
+const fullTitle = title === site.title ? title : `${title} | ${site.name}`;
+const canonicalUrl = new URL(canonical, site.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body class={bodyClass}>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import "../scripts/maggie-animations";
+    </script>
+  </body>
+</html>

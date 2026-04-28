@@ -1,0 +1,19 @@
+---
+import FAQList from "@components/FAQList.astro";
+import Layout from "@layouts/Layout.astro";
+import { faqPage, faqs } from "@content/faqs";
+---
+
+<Layout title={faqPage.title} description={faqPage.description} canonical="/faqs" bodyClass={faqPage.theme}>
+  <section class="subpage-section">
+    <div class="form-card-container" data-reveal>
+      <h1 class="subpage-heading" style="margin-bottom: 40px;">{faqPage.heading}</h1>
+      
+      <div style="border-bottom: 2px solid var(--line); margin: 0 -40px 0;"></div>
+      
+      <div style="width: 100%; margin-top: 0;">
+        <FAQList items={faqs} />
+      </div>
+    </div>
+  </section>
+</Layout>

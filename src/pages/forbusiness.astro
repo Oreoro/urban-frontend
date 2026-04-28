@@ -1,0 +1,22 @@
+---
+import LeadForm from "@components/LeadForm.astro";
+import Layout from "@layouts/Layout.astro";
+import { pages } from "@content/pages";
+
+const page = pages.forbusiness;
+---
+
+<Layout title={page.title} description={page.description} canonical="/forbusiness" bodyClass={page.theme}>
+  <section class="subpage-section">
+    <div class="form-card-container" data-reveal>
+      <h1 class="subpage-heading">{page.heading}</h1>
+      <div style="margin: 32px 0 32px; border-bottom: 2px solid var(--line);">
+        <h2 style="font-family: var(--font-display); font-size: clamp(24px, 4vw, 40px); color: var(--ink); margin-bottom: 12px; text-transform: uppercase;">{page.subheading}</h2>
+        <p style="font-size: 18px; color: var(--ink); max-width: 600px; margin: 0 auto 32px;">{page.body[0]}</p>
+      </div>
+      <div class="form-wrapper">
+        <LeadForm type="venue" />
+      </div>
+    </div>
+  </section>
+</Layout>

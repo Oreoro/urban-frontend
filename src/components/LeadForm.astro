@@ -1,0 +1,25 @@
+---
+interface Props {
+  type?: "contact" | "venue";
+}
+
+const { type = "contact" } = Astro.props;
+const fields =
+  type === "venue"
+    ? ["What's your name?", "Venue's name", "Your email"]
+    : ["What's your name?", "Your email"];
+---
+
+<form class="lead-form">
+  {fields.map((placeholder) => (
+    <label>
+      <span>{placeholder}</span>
+      <input type={placeholder.includes("email") ? "email" : "text"} placeholder={placeholder} />
+    </label>
+  ))}
+  <label>
+    <span>Send us a message (Optional)</span>
+    <textarea placeholder="Enter"></textarea>
+  </label>
+  <button class="pill-button tone-green" type="button">Submit</button>
+</form>

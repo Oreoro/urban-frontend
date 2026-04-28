@@ -1,0 +1,19 @@
+{
+  "name": "maggie-app-astro",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "npm run check:framer-runtime && astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check:framer-runtime": "node scripts/check-framer-runtime.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}

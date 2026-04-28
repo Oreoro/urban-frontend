@@ -1,0 +1,36 @@
+---
+import LeadForm from "@components/LeadForm.astro";
+import Layout from "@layouts/Layout.astro";
+import { pages } from "@content/pages";
+
+const page = pages.contact;
+---
+
+<Layout title={page.title} description={page.description} canonical="/contact" bodyClass={page.theme}>
+  <section class="subpage-section">
+    <div class="form-card-container" data-reveal>
+      <h1 class="subpage-heading">{page.heading}</h1>
+      
+      <div class="form-divider-text" style="position: relative; margin: 40px 0;">
+        <div style="position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--line); z-index: 1;"></div>
+        <span style="position: relative; z-index: 2; background: var(--cream); padding: 0 20px; font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); color: var(--ink); text-transform: uppercase;">{page.emailIntro}</span>
+      </div>
+      
+      <a href={`mailto:${page.email}`} style="display: inline-flex; align-items: center; gap: 12px; padding: 12px 32px; background: var(--mint); border: 2px solid var(--ink); border-radius: var(--radius-full); font-family: var(--font-strong); font-size: 16px; color: var(--ink); text-transform: uppercase;">
+        {page.email}
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </a>
+
+      <div class="form-divider-text" style="position: relative; margin: 60px 0 40px;">
+        <div style="position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--line); z-index: 1;"></div>
+        <span style="position: relative; z-index: 2; background: var(--cream); padding: 0 20px; font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); color: var(--ink); text-transform: uppercase;">{page.formHeading}</span>
+      </div>
+
+      <div class="form-wrapper" style="margin-top: 0;">
+        <p style="text-align: center; margin-bottom: 32px; font-size: 18px;">{page.formIntro}</p>
+        <div style="border-bottom: 2px solid var(--line); margin-bottom: 32px;"></div>
+        <LeadForm type="contact" />
+      </div>
+    </div>
+  </section>
+</Layout>

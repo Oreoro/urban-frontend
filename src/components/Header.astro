@@ -1,0 +1,44 @@
+---
+import { site } from "@content/site";
+---
+
+<header class="site-header">
+  <a class="brand-mark" href="/" aria-label="Maggie home">
+    <span class="brand-name">maggie</span>
+  </a>
+
+  <nav class="nav-main" aria-label="Primary navigation">
+    {site.nav.map((item) => {
+      let bgClass = "";
+      if (item.label === "FAQS") bgClass = "bg-pink";
+      if (item.label === "ABOUT") bgClass = "bg-peach";
+      if (item.label === "CONTACT") bgClass = "bg-mint";
+      if (item.label === "ADD VENUE") bgClass = "bg-cyan";
+      return <a class={`nav-link ${bgClass}`} href={item.href}>{item.label}</a>;
+    })}
+  </nav>
+
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
+    <span class="menu-bar"></span>
+    <span class="menu-bar"></span>
+  </button>
+
+  <nav id="mobile-nav" class="mobile-nav" data-nav aria-label="Mobile navigation">
+    {site.nav.map((item) => (
+      <a class="nav-link" href={item.href}>{item.label}</a>
+    ))}
+    <a class="button button-primary" href={site.appStoreUrl}>Download App</a>
+  </nav>
+</header>
+
+<script is:inline>
+  const menuButton = document.querySelector("[data-menu-toggle]");
+  const nav = document.querySelector("[data-nav]");
+
+  menuButton?.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!isOpen));
+    nav?.toggleAttribute("data-open", !isOpen);
+    menuButton.classList.toggle("is-open", !isOpen);
+  });
+</script>

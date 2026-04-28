@@ -1,0 +1,35 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { pages } from "@content/pages";
+
+const page = pages.about;
+---
+
+<Layout title={page.title} description={page.description} canonical="/about" bodyClass={page.theme}>
+  <section class="subpage-section">
+    <div class="subpage-inner" data-reveal>
+      <p class="subpage-eyebrow">{page.eyebrow}</p>
+      <h1 class="subpage-heading">{page.heading}</h1>
+      
+      <div class="about-photo" style="margin: 40px 0;">
+        <img src={page.image.src} alt={page.image.alt} />
+      </div>
+
+      <div class="subpage-body" style="display: grid; gap: 24px;">
+        {page.body.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <h2 class="subpage-subheading" style="margin-top: 60px;">{page.subheading}</h2>
+      
+      <div class="subpage-body">
+        <p>{page.pullquote}</p>
+        <p>{page.close}</p>
+      </div>
+
+      <div style="margin-top: 60px;">
+        <p style="font-family: var(--font-strong); margin-bottom: 24px;">{page.ctaHeading}</p>
+        <a href={page.ctaHref} class="pill-button">{page.ctaLabel}</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,19 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { pages } from "@content/pages";
+
+const page = pages.android;
+---
+
+<Layout title={page.title} description={page.description} canonical="/android" bodyClass={page.theme}>
+  <section class="subpage-section">
+    <div class="subpage-inner" data-reveal>
+      <p class="subpage-eyebrow">{page.eyebrow}</p>
+      <h1 class="subpage-heading">{page.heading}</h1>
+      
+      <div class="subpage-body">
+        {page.body.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+</Layout>
