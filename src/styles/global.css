@@ -348,7 +348,7 @@ p {
    =================================================== */
 .hero-section {
   background: var(--mint);
-  padding: 80px 32px 60px;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
   text-align: center;
 }
 
@@ -379,7 +379,7 @@ p {
    =================================================== */
 .marquee-section {
   background: var(--yellow);
-  padding: 80px 32px;
+  padding: var(--space-xl) var(--space-md);
   text-align: center;
 }
 
@@ -406,7 +406,7 @@ p {
    FEATURES — cream bg, pink card + lavender chip scroller
    =================================================== */
 .section-features {
-  padding: 80px 32px; background: var(--cream);
+  padding: var(--space-xl) var(--space-md); background: var(--cream);
 }
 
 .features-inner {
