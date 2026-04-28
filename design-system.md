@@ -31,19 +31,19 @@ A soft, high-saturation pastel palette evoking childhood crayons, play mats, and
 
 | Token | Hex | Usage |
 |---|---|---|
-| `--color-ink` | `#03594D` | Primary text, heavy borders, button backgrounds, shadows |
-| `--color-ink-soft` | `rgba(3,89,77,0.55)` | Secondary text, body paragraphs |
-| `--color-ink-faint` | `rgba(3,89,77,0.15)` | Borders, light dividers |
-| `--color-mint` | `#82EDA6` | Hero background, brand anchor, primary sections |
-| `--color-lavender` | `#F6BBFD` | Scrollers, secondary accents |
-| `--color-pink` | `#FFD5E0` | Feature cards, quote blocks |
-| `--color-yellow` | `#FFD93D` | Benefit/marquee blocks, prominent CTAs |
-| `--color-peach` | `#FDC068` | Origin section backgrounds, warm accents |
-| `--color-coral` | `#FF8A65` | High-contrast accents |
-| `--color-cyan` | `#C8F8FF` | Mission section, mascot backdrop |
-| `--color-cream` | `#FFF9ED` | Neutral base, body backgrounds, secondary sections |
-| `--color-white` | `#FFFDF8` | Card backgrounds, pill buttons |
-| `--color-line` | `rgba(3,89,77,0.10)` | Very subtle dividers |
+| `--color-ink` | `#03594d` | Primary text, heavy borders, button backgrounds, shadows |
+| `--color-ink-soft` | `rgba(3, 89, 77, 0.55)` | Secondary text, body paragraphs |
+| `--color-ink-faint` | `rgba(3, 89, 77, 0.15)` | Borders, light dividers |
+| `--color-mint` | `#82eda6` | Hero background, brand anchor, primary sections |
+| `--color-lavender` | `#f6bbfd` | Scrollers, secondary accents |
+| `--color-pink` | `#fccddc` | Feature cards, quote blocks |
+| `--color-yellow` | `#ffff94` | Benefit/marquee blocks, prominent CTAs |
+| `--color-peach` | `#fdc068` | Origin section backgrounds, warm accents |
+| `--color-coral` | `#fc5681` | High-contrast accents |
+| `--color-cyan` | `#aefbff` | Mission section, mascot backdrop |
+| `--color-cream` | `#f9f8f4` | Neutral base, body backgrounds, secondary sections |
+| `--color-white` | `#ffffff` | Card backgrounds, pill buttons |
+| `--color-line` | `rgba(3, 89, 77, 0.10)` | Very subtle dividers |
 
 ### 2.2 Semantic & State Colors
 - **Text:** Primarily `--color-ink` for maximum contrast on pastels.
@@ -59,10 +59,10 @@ The site uses a **three-tier type system**.
 ### 3.1 Font Families
 | Token | Font Family | Role |
 |---|---|---|
-| `--font-display` | `"BN Dime Display Regular", "Bungee", sans-serif` | Massive H1s, H2s, Marquees (Chunky, ALL CAPS) |
+| `--font-display` | `'BN Dime Display Regular', sans-serif` | Massive H1s, H2s, Marquees (Chunky, ALL CAPS) |
 | `--font-strong` | `"Archivo", sans-serif` | Small caps, buttons, tags, labels, subheadings |
-| `--font-body` | `"Inter", "Nunito", sans-serif` | Paragraphs, standard reading text |
-| `--font-script` | `"Caveat", cursive` | Handwritten emotional beats ("you're welcome!") |
+| `--font-body` | `'Helvetica Neue', sans-serif` | Paragraphs, standard reading text |
+| `--font-script` | `'Homemade Apple', sans-serif` | Handwritten emotional beats ("you're welcome!") |
 
 ### 3.2 Typographic Scale (Responsive Clamps)
 - **Massive Display:** `clamp(50px, 10vw, 130px)` (Line-height `0.9`)
