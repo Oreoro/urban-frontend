@@ -20,22 +20,35 @@
 }
 
 :root {
-  /* Maggie Design System Tokens (Canonical) */
-  --color-ink: #03594D;
-  --color-ink-soft: rgba(3,89,77,0.55);
-  --color-ink-faint: rgba(3,89,77,0.15);
-  --color-mint: #82EDA6;
-  --color-lavender: #F6BBFD;
-  --color-pink: #FFD5E0;
-  --color-yellow: #FFD93D;
-  --color-peach: #FDC068;
-  --color-coral: #FF8A65;
-  --color-cyan: #C8F8FF;
-  --color-cream: #FFF9ED;
-  --color-white: #FFFDF8;
-  --color-line: rgba(3,89,77,0.10);
+  /* Maggie Design System Tokens (Refined from new.css) */
+  --color-ink: #03594d;
+  --color-ink-soft: rgba(3, 89, 77, 0.55);
+  --color-ink-faint: rgba(3, 89, 77, 0.15);
+  
+  /* Primary Palette */
+  --color-mint: #82eda6;
+  --color-lavender: #f6bbfd;
+  --color-pink: #fccddc;
+  --color-yellow: #ffff94;
+  --color-peach: #fdc068;
+  --color-coral: #fc5681;
+  --color-cyan: #aefbff;
+  --color-cream: #f9f8f4;
+  --color-white: #ffffff;
+  
+  /* Extended Palette from new.css */
+  --color-khaki: #ffff94;
+  --color-dark-orange: #ff9124;
+  --color-pastel-orange: #fdc068;
+  --color-plum: #c88cfd;
+  --color-dark-slate-gray: #03594d;
+  --color-cornflower-blue: #589af0;
+  --color-dark-turquoise: #0099ff;
+  --color-blue: #0000ee;
+  --color-black: #000000;
+  --color-line: rgba(3, 89, 77, 0.10);
 
-  /* Legacy Aliases (pointing to canonical) */
+  /* Legacy Aliases (pointing to refined tokens) */
   --ink: var(--color-ink);
   --ink-soft: var(--color-ink-soft);
   --ink-faint: var(--color-ink-faint);
