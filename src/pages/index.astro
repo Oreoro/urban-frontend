@@ -31,9 +31,9 @@ import { home } from "@content/home";
   <!-- ===== MARQUEE (yellow) ===== -->
   <section class="marquee-section">
     <div class="marquee-inner">
-      <p class="marquee-text" data-reveal>{home.marquee}</p>
+      <p class="type-large-title-120" data-reveal>{home.marquee}</p>
       <p class="marquee-tag" data-reveal>
-        <span style="font-family: var(--font-script); font-size: clamp(20px,3vw,32px);">{home.marqueeTag}</span>
+        <span class="type-heading">{home.marqueeTag}</span>
       </p>
     </div>
   </section>
@@ -41,11 +41,11 @@ import { home } from "@content/home";
   <!-- ===== FEATURES (cream) ===== -->
   <section class="section-features">
     <div class="features-inner">
-      <h2 class="features-heading" data-reveal>{home.features.heading}</h2>
+      <h2 class="type-h3" data-reveal style="margin-bottom: var(--space-md);">{home.features.heading}</h2>
       <div class="features-grid">
         <!-- Main feature card (pink) -->
         <div class="feature-main-card" data-reveal>
-          <h3>{home.features.main}</h3>
+          <h3 class="type-h2">{home.features.main}</h3>
         </div>
         <!-- Chip scroller (lavender) -->
         <div class="todo-scroll" data-reveal aria-label="Activity ideas scroller">
