@@ -1,4 +1,7 @@
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealItems = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
@@ -10,13 +13,23 @@ function showWithoutMotion() {
 if (reduceMotion) {
   showWithoutMotion();
 } else {
-  // Hero entrance
-  const hero = document.querySelector<HTMLElement>("[data-hero]");
-  if (hero) {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.from(".hero-eyebrow", { y: 16, opacity: 0, duration: 0.5 })
-      .from(".hero-title", { y: 40, opacity: 0, duration: 0.7 }, "-=0.15")
-      .from(".hero-section .cta-row", { y: 18, opacity: 0, duration: 0.5 }, "-=0.3");
+  // Carousel Dot Tracking
+  const track = document.querySelector<HTMLElement>(".carousel-track");
+  const dots = document.querySelectorAll<HTMLElement>(".nav-dot");
+  
+  if (track && dots.length > 0) {
+    track.addEventListener("scroll", () => {
+      const scrollPos = track.scrollLeft;
+      const slideWidth = track.offsetWidth;
+      const activeIndex = Math.round(scrollPos / slideWidth);
+      
+      dots.forEach((dot, i) => {
+        dot.style.background = i === activeIndex ? "var(--color-ink)" : "var(--color-ink-faint)";
+      });
+    }, { passive: true });
+    
+    // Set initial dot
+    dots[0].style.background = "var(--color-ink)";
   }
 
   // Floating items gentle animation
@@ -35,46 +48,88 @@ if (reduceMotion) {
   const countEl = document.querySelector<HTMLElement>("[data-count-target]");
   if (countEl) {
     const target = parseInt(countEl.dataset.countTarget || "0", 10);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          gsap.to({ val: 0 }, {
-            val: target,
-            duration: 2,
-            ease: "power2.out",
-            onUpdate: function () {
-              countEl.textContent = Math.round(this.targets()[0].val).toLocaleString();
-            }
-          });
-          observer.unobserve(entry.target);
+    ScrollTrigger.create({
+      trigger: countEl,
+      start: "top 80%",
+      once: true,
+      onEnter: () => {
+        gsap.to({ val: 0 }, {
+          val: target,
+          duration: 2,
+          ease: "power2.out",
+          onUpdate: function () {
+            countEl.textContent = Math.round(this.targets()[0].val).toLocaleString();
+          }
         });
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(countEl);
+      }
+    });
   }
 
   // Scroll reveal
-  if ("IntersectionObserver" in window) {
-    const revealObs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target as HTMLElement;
-          el.setAttribute("data-visible", "true");
-          gsap.fromTo(el, { y: 28, opacity: 0 }, {
-            y: 0, opacity: 1, duration: 0.7,
-            ease: "power3.out", overwrite: true
-          });
-          revealObs.unobserve(el);
-        });
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+  revealItems.forEach((el) => {
+    el.setAttribute("data-visible", "true");
+    gsap.fromTo(el, 
+      { y: 40, opacity: 0 },
+      {
+        y: 0, 
+        opacity: 1, 
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        }
+      }
     );
-    revealItems.forEach((item) => revealObs.observe(item));
-  } else {
-    revealItems.forEach((item) => item.setAttribute("data-visible", "true"));
+  });
+
+  // Overlap Card "Slide Up" Animation
+  const overlapCards = gsap.utils.toArray<HTMLElement>(".section-overlap-card, .footer-cta, .section-origin-bg, .section-features");
+  overlapCards.forEach((card) => {
+    gsap.fromTo(card,
+      { y: 60 },
+      {
+        y: 0,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          end: "top 60%",
+          scrub: 1
+        }
+      }
+    );
+  });
+
+  // Mascot Face Parallax
+  const mascotFaces = gsap.utils.toArray<HTMLElement>(".feature-card-face, .origin-face, .final-cta-face");
+  mascotFaces.forEach((face) => {
+    gsap.to(face, {
+      yPercent: -30,
+      ease: "none",
+      scrollTrigger: {
+        trigger: face.parentElement,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  });
+
+  // Continuous Marquee (if elements exist)
+  const marqueeInner = document.querySelector<HTMLElement>(".marquee-inner");
+  if (marqueeInner) {
+    gsap.to(".marquee-inner", {
+      xPercent: -10, // Slight movement
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".marquee-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
   }
 }
 
@@ -128,16 +183,3 @@ if (header) {
   onScroll();
 }
 
-// Mouse Parallax for phones
-document.addEventListener("mousemove", (e) => {
-  if (reduceMotion) return;
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
-  
-  document.querySelectorAll<HTMLElement>(".phone").forEach((phone, index) => {
-    const speed = (index + 1) * 0.5;
-    // getComputedStyle to maintain the CSS custom property --rot
-    const rot = getComputedStyle(phone).getPropertyValue('--rot') || '';
-    phone.style.transform = `translate(${x * speed}px, ${y * speed}px) ${rot}`;
-  });
-});

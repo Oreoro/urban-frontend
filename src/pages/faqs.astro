@@ -2,18 +2,25 @@
 import FAQList from "@components/FAQList.astro";
 import Layout from "@layouts/Layout.astro";
 import { faqPage, faqs } from "@content/faqs";
+import MaggieFace from "@components/MaggieFace.astro";
 ---
 
 <Layout title={faqPage.title} description={faqPage.description} canonical="/faqs" bodyClass={faqPage.theme}>
-  <section class="subpage-section">
-    <div class="form-card-container" data-reveal>
-      <h1 class="subpage-heading" style="margin-bottom: 40px;">{faqPage.heading}</h1>
-      
-      <div style="border-bottom: 2px solid var(--line); margin: 0 -40px 0;"></div>
-      
-      <div style="width: 100%; margin-top: 0;">
-        <FAQList items={faqs} />
+  <section class="subpage-section" style="padding-bottom: 80px;">
+    <div class="subpage-inner" data-reveal style="position: relative; max-width: 900px; margin: 0 auto; text-align: center;">
+      <!-- Floating face decoration -->
+      <div style="position: absolute; top: -20px; right: 0; opacity: 0.8; transform: rotate(15deg); z-index: 1;">
+        <MaggieFace size={80} variant="badge" bg="#aefbff" />
       </div>
+      
+      <p class="subpage-eyebrow" style="display: inline-block; margin-bottom: 24px;">{faqPage.eyebrow}</p>
+      <h1 class="subpage-heading" style="margin-bottom: 24px; font-size: clamp(40px, 8vw, 80px);">{faqPage.heading}</h1>
+    </div>
+  </section>
+
+  <section class="section-overlap-card">
+    <div class="section-inner" data-reveal>
+      <FAQList items={faqs} />
     </div>
   </section>
 </Layout>

@@ -1,18 +1,18 @@
 export const site = {
-  name: "Maggie",
-  title: "Maggie App | Free Activities for Mums and Kids Near You",
+  name: "UrbanEvents",
+  title: "UrbanEvents | Professional Ticketing & Check-in for Small Organizers",
   description:
-    "Maggie is a free app that helps mums find local activities, events, and things to do with their kids. Made by mums, for mums — discover what's on near you, fast.",
-  url: "https://maggie-app.com",
-  ogImage: "https://maggie-app.com/og-image.png",
-  email: "hello@maggie-app.com",
-  appStoreUrl: "https://apps.apple.com/au/app/maggie/id6744465756",
+    "The easiest ticketing and check-in platform for student societies, MUNs, and workshop organizers in Pakistan. Professional events, zero headache.",
+  url: "https://urbanevents.pk",
+  ogImage: "https://urbanevents.pk/og-image.png",
+  email: "hello@urbanevents.pk",
+  appStoreUrl: "https://app.urbanevents.pk",
   nav: [
     { label: "FAQS", href: "/faqs" },
     { label: "ABOUT", href: "/about" },
-    { label: "ADD VENUE", href: "/forbusiness" },
-    { label: "CONTACT", href: "/contact" }
+    { label: "CONTACT", href: "/contact" },
+    { label: "ADD VENUE", href: "/contact" }
   ],
-  footerCta: "Turn chaos into chuckles with Maggie!",
-  footerSub: "Download for free. Made by mums, for mums."
+  footerCta: "Ready to sell out your next event?",
+  footerSub: "Start your event for free. Built for small teams with big ideas."
 };

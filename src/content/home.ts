@@ -1,52 +1,62 @@
 export const home = {
   hero: {
-    eyebrow: "meet maggie",
-    title: "Your pocket guide to surviving parenthood, one activity at a time.",
-    sub: "Free activities, local events, and things to do with your little ones — all in one app. Made by mums, for mums.",
-    primaryCta: "Download on the App Store",
-    primaryCtaHref: "https://apps.apple.com/au/app/maggie/id6744465756"
+    eyebrow: "built for small teams with big ideas",
+    title: "PROFESSIONAL EVENTS, ZERO HEADACHE.",
+    sub: "The easiest ticketing and check-in platform for student societies, MUNs, and workshop organizers. Launch in minutes, manage with ease.",
+    primaryCta: "Get Started for Free",
+    primaryCtaHref: "https://app.urbanevents.pk",
+    carousel: {
+      slide1: "TURN CHAOS INTO SUCCESS WITH URBANEVENTS!",
+      slide3: "URBANEVENTS IS ON A MISSION TO LIGHTEN THE LOAD FOR ORGANIZERS.",
+      stickers: [
+        { label: "sell out fast", id: "ticket" },
+        { label: "easy check-in", id: "qr" },
+        { label: "spread the word", id: "megaphone" },
+        { label: "track growth", id: "analytics" }
+      ]
+    }
   },
 
   marquee:
-    "FIND FREE SANITY—SAVING ACTIVITIES FASTER THAN YOUR TODDLER CAN EMPTY THE TUPPERWARE DRAWER",
-  marqueeTag: "You're welcome!",
+    "UNIS • MUNS • WORKSHOPS • CONCERTS • SOCIETIES • SMALL CORPORATE • SMALL TEAMS •",
+  marqueeTag: "Free for free events!",
 
   features: {
-    heading: "WITH MAGGIE YOU CAN:",
-    main: "FIND ACTIVITIES in your Local area",
+    heading: "EVERYTHING YOU NEED TO LAUNCH",
+    main: "TICKETING IN MINUTES",
     todoItems: [
-      "pack the drinks",
-      "breakfast",
-      "ballet class",
-      "snaaacks",
-      "pack the dummy",
-      "moooore snacks"
+      "sell tickets",
+      "QR scan entry",
+      "local payments",
+      "live analytics",
+      "branded page",
+      "attendee list"
     ]
   },
 
   mission: {
-    heading: "OUR APP IS ON A MISSION TO HELP LIGHTEN PARENTS' MENTAL LOAD",
-    sub: "Because making memories shouldn't be another thing on your to-do list."
+    heading: "PLANNING SHOULDN'T BE A SECOND JOB",
+    sub: "Whether it's a university MUN or your first paid workshop, UrbanEvents gives you the tools of a professional organizer without the professional price tag."
   },
 
   origin: {
-    intro: "Maggie started with two mums, a few wines, and one big idea:",
-    headline: "parenting should feel LIGHTER",
-    body: "Maggie is for every parent who has ever felt overwhelmed, isolated, or just out of ideas.",
-    ctaLabel: "READ MORE",
+    intro: "UrbanEvents started because we were tired of spreadsheets and manual lists:",
+    headline: "The tool we wished we HAD",
+    body: "It's time for Pakistani student leaders and creators to have a platform that just works. No international fees, just reliable tech.",
+    ctaLabel: "LEARN MORE",
     ctaHref: "/about"
   },
 
   stats: {
-    prefix: "More than",
-    count: 5000,
-    suffix: "Free activities and kid-friendly parks across Australia.",
-    tag: "Maggie has you covered"
+    prefix: "Powering",
+    count: 200,
+    suffix: "Student societies and independent workshop hosts across Pakistan.",
+    tag: "UrbanEvents has you covered"
   },
 
   cta: {
-    heading: "Turn chaos into chuckles with Maggie!",
-    primaryCta: "Download on the App Store",
-    primaryCtaHref: "https://apps.apple.com/au/app/maggie/id6744465756"
+    heading: "READY TO SELL OUT?",
+    primaryCta: "Get Started for Free",
+    primaryCtaHref: "https://app.urbanevents.pk"
   }
 };

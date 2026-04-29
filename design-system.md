@@ -45,6 +45,14 @@ A soft, high-saturation pastel palette evoking childhood crayons, play mats, and
 | `--color-white` | `#ffffff` | Card backgrounds, pill buttons |
 | `--color-line` | `rgba(3, 89, 77, 0.10)` | Very subtle dividers |
 
+### 2.2 Extended Palette (from new.css)
+- **--color-khaki**: `#ffff94` (Alias for yellow)
+- **--color-dark-orange**: `#ff9124`
+- **--color-plum**: `#c88cfd`
+- **--color-cornflower-blue**: `#589af0`
+- **--color-dark-turquoise**: `#0099ff`
+- **--color-blue**: `#0000ee`
+
 ### 2.2 Semantic & State Colors
 - **Text:** Primarily `--color-ink` for maximum contrast on pastels.
 - **Hover States:** Button backgrounds shift brightness slightly or shadows reduce depth to simulate pressing.
@@ -65,12 +73,14 @@ The site uses a **three-tier type system**.
 | `--font-script` | `'Homemade Apple', sans-serif` | Handwritten emotional beats ("you're welcome!") |
 
 ### 3.2 Typographic Scale (Responsive Clamps)
-- **Massive Display:** `clamp(50px, 10vw, 130px)` (Line-height `0.9`)
-- **H1 / Hero:** `clamp(42px, 8vw, 80px)` (Line-height `0.95`)
-- **H2 / Section:** `clamp(36px, 6vw, 72px)` (Line-height `0.95`)
-- **H3 / Card:** `clamp(24px, 3vw, 40px)` (Line-height `1`)
-- **Body Large:** `clamp(18px, 2.5vw, 24px)` (Line-height `1.5`)
-- **Body Default:** `16px` (Line-height `1.5`)
+- **Massive Display (.type-large-title):** `clamp(80px, 15vw, 180px)` (Line-height `0.8`)
+- **Large Display (.type-large-title-120):** `clamp(60px, 10vw, 120px)` (Line-height `0.8`)
+- **Medium Display (.type-large-title-100):** `clamp(50px, 8vw, 100px)` (Line-height `0.8`)
+- **H1 / Hero (.type-h1):** `clamp(42px, 8vw, 100px)` (Line-height `0.9`)
+- **H2 / Section (.type-h2):** `32px` (Line-height `0.9`)
+- **H3 / Card (.type-h3):** `48px` (Line-height `0.9`)
+- **Heading Script (.type-heading):** `25px` (Line-height `1.16`)
+- **Body Default (.type-body):** `9px` (Line-height `1.0`) — *Note: Global body text is 18px.*
 - **Micro / Label:** `13px` / `14px` (Letter-spacing `0.04em`, UPPERCASE)
 
 ---
@@ -109,7 +119,7 @@ We use hard, un-blurred drop shadows to give elements a physical, "sticker" feel
 
 - **Mobile First:** Default styles target `< 768px`.
 - **Tablet (`>= 768px`):** `grid-template-columns: repeat(2, 1fr)` for features. Max-width containers constrain text.
-- **Desktop (`>= 1024px`):** Max width caps out at `1200px` for ultra-wide displays. Multi-column layouts utilize `auto-fit` or explicit `1fr` columns.
+- **Desktop (`>= 1024px`):** Max width caps out at `1200px` (`--container-max`) for ultra-wide displays. All inner content is wrapped in `.container-inner`.
 
 ---
 

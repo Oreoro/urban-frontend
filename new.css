@@ -1,0 +1,362 @@
+/* Created by Peek from maggie-app.com */
+/* Version: 0.8.9.1 */
+/* Created at: 29/04/2026, 02:57:02 */
+/* Learn more: https://trypeek.app */
+
+/* Typography – Raw tokens (Layer 2) */
+:root {
+    --font-bn-dime-display-regular: 'BN Dime Display Regular', sans-serif;
+    --font-homemade-apple: 'Homemade Apple', sans-serif;
+    --font-sans-serif: sans-serif, serif;
+    --font-helvetica-neue: 'Helvetica Neue', sans-serif;
+    --text-9: 9px;
+    --text-12: 12px;
+    --text-14: 14px;
+    --text-25: 25px;
+    --text-32: 32px;
+    --text-48: 48px;
+    --text-100: 100px;
+    --text-120: 120px;
+    --text-180: 180px;
+    --tracking-1-8: 1.8px;
+    --tracking-1-2: 1.2px;
+    --tracking-0-5: 0.5px;
+    --tracking-0-25: 0.25px;
+    --tracking-0-18: 0.18px;
+}
+
+/* Typography – Semantic type styles (Layer 1) */
+.type-large-title {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-180);
+    font-weight: 400;
+    line-height: 0.80;
+    letter-spacing: var(--tracking-1-8);
+}
+
+.type-large-title-120 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-120);
+    font-weight: 400;
+    line-height: 0.80;
+    letter-spacing: var(--tracking-1-2);
+}
+
+.type-large-title-100 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-100);
+    font-weight: 400;
+    line-height: 0.80;
+}
+
+.type-h1 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-100);
+    font-weight: 400;
+    line-height: 0.90;
+}
+
+.type-h3 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-48);
+    font-weight: 400;
+    line-height: 0.90;
+    letter-spacing: var(--tracking-0-5);
+}
+
+.type-h2 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-32);
+    font-weight: 400;
+    line-height: 0.90;
+    letter-spacing: var(--tracking-0-5);
+}
+
+.type-heading {
+    font-family: var(--font-homemade-apple);
+    font-size: var(--text-25);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: var(--tracking-0-25);
+}
+
+.type-h4 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-14);
+    font-weight: 400;
+    line-height: 1.00;
+    letter-spacing: var(--tracking-0-5);
+}
+
+.type-h3-14 {
+    font-family: var(--font-homemade-apple);
+    font-size: var(--text-14);
+    font-weight: 400;
+    line-height: 1.14;
+}
+
+.type-caption {
+    font-family: var(--font-sans-serif);
+    font-size: var(--text-12);
+    font-weight: 400;
+    line-height: normal;
+}
+
+.type-body {
+    font-family: var(--font-helvetica-neue);
+    font-size: var(--text-9);
+    font-weight: 400;
+    line-height: 1.00;
+    letter-spacing: var(--tracking-0-18);
+}
+
+
+
+/* Created by Peek from maggie-app.com */
+/* Version: 0.8.9.1 */
+/* Created at: 29/04/2026, 02:57:32 */
+/* Learn more: https://trypeek.app */
+
+:root {
+    /* 12 Background Colors */
+    --color-light-green: #82eda6;
+    --color-khaki: #ffff94;
+    --color-lavender: #aefbff;
+    --color-white-smoke: #f9f8f4;
+    --color-dark-orange: #ff9124;
+    --color-light-coral: #fc5681;
+    --color-pastel-orange: #fdc068;
+    --color-plum: #c88cfd;
+    --color-lavender-1: #f6bbfd;
+    --color-pink: #fccddc;
+    --color-dark-slate-gray: #03594d;
+    --color-cornflower-blue: #589af0;
+}
+
+/* Created by Peek from maggie-app.com */
+/* Version: 0.8.9.1 */
+/* Created at: 29/04/2026, 02:57:48 */
+/* Learn more: https://trypeek.app */
+
+:root {
+    /* 18 Colors */
+    --color-white: #ffffff;
+    --color-white-smoke: #f9f8f4;
+    --color-pink: #fccddc;
+    --color-lavender-1-300: #fc5681;
+    --color-lavender-1-400: #f6bbfd;
+    --color-lavender-1-500: #f6bbfd;
+    --color-lavender: #aefbff;
+    --color-light-green: #82eda6;
+    --color-pastel-orange: #fdc068;
+    --color-khaki: #ffff94;
+    --color-plum: #c88cfd;
+    --color-dark-gray: #89a9a1;
+    --color-cornflower-blue: #589af0;
+    --color-dark-orange: #ff9124;
+    --color-dark-turquoise: #0099ff;
+    --color-blue: #0000ee;
+    --color-dark-slate-gray: #03594d;
+    --color-black: #000000;
+}
+
+/* Created by Peek from maggie-app.com */
+/* Version: 0.8.9.1 */
+/* Created at: 29/04/2026, 02:58:21 */
+/* Learn more: https://trypeek.app */
+
+/* 22 identified type styles */
+/* Typography – Raw tokens (Layer 2) */
+:root {
+    --font-bn-dime-display-regular: 'BN Dime Display Regular', sans-serif;
+    --font-homemade-apple: 'Homemade Apple', sans-serif;
+    --font-sans-serif: sans-serif, serif;
+    --font-helvetica-neue: 'Helvetica Neue', sans-serif;
+    --text-9: 9px;
+    --text-12: 12px;
+    --text-14: 14px;
+    --text-25: 25px;
+    --text-32: 32px;
+    --text-48: 48px;
+    --text-100: 100px;
+    --text-120: 120px;
+    --text-180: 180px;
+    --tracking-1-8: 1.8px;
+    --tracking-1-2: 1.2px;
+    --tracking-0-5: 0.5px;
+    --tracking-0-25: 0.25px;
+    --tracking-0-18: 0.18px;
+}
+
+/* Typography – Semantic type styles (Layer 1) */
+.type-large-title {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-180);
+    font-weight: 400;
+    line-height: 0.80;
+    letter-spacing: var(--tracking-1-8);
+}
+
+.type-h1 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-180);
+    font-weight: 400;
+    line-height: 0.80;
+    letter-spacing: var(--tracking-1-8);
+}
+
+.type-h1-180 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-180);
+    font-weight: 400;
+    line-height: 0.80;
+    letter-spacing: var(--tracking-1-8);
+}
+
+.type-h1-180-400 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-180);
+    font-weight: 400;
+    line-height: 0.80;
+    letter-spacing: var(--tracking-1-8);
+}
+
+.type-h1-180-400 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-180);
+    font-weight: 400;
+    line-height: 0.80;
+}
+
+.type-large-title-120 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-120);
+    font-weight: 400;
+    line-height: 0.80;
+    letter-spacing: var(--tracking-1-2);
+}
+
+.type-h1-120 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-120);
+    font-weight: 400;
+    line-height: 0.80;
+    letter-spacing: var(--tracking-1-2);
+}
+
+.type-large-title-100 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-100);
+    font-weight: 400;
+    line-height: 0.80;
+}
+
+.type-h1-100 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-100);
+    font-weight: 400;
+    line-height: 0.80;
+}
+
+.type-h1-100-400 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-100);
+    font-weight: 400;
+    line-height: 0.80;
+}
+
+.type-h1-100-400 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-100);
+    font-weight: 400;
+    line-height: 0.90;
+}
+
+.type-h3 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-48);
+    font-weight: 400;
+    line-height: 0.90;
+    letter-spacing: var(--tracking-0-5);
+}
+
+.type-h2 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-32);
+    font-weight: 400;
+    line-height: 0.90;
+    letter-spacing: var(--tracking-0-5);
+}
+
+.type-heading {
+    font-family: var(--font-homemade-apple);
+    font-size: var(--text-25);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: var(--tracking-0-25);
+}
+
+.type-h3-25 {
+    font-family: var(--font-homemade-apple);
+    font-size: var(--text-25);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: var(--tracking-0-25);
+}
+
+.type-h3-25-400 {
+    font-family: var(--font-homemade-apple);
+    font-size: var(--text-25);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: var(--tracking-0-25);
+}
+
+.type-h4 {
+    font-family: var(--font-bn-dime-display-regular);
+    font-size: var(--text-14);
+    font-weight: 400;
+    line-height: 1.00;
+    letter-spacing: var(--tracking-0-5);
+}
+
+.type-h3-14 {
+    font-family: var(--font-homemade-apple);
+    font-size: var(--text-14);
+    font-weight: 400;
+    line-height: 1.14;
+}
+
+.type-caption {
+    font-family: var(--font-sans-serif);
+    font-size: var(--text-12);
+    font-weight: 400;
+    line-height: normal;
+}
+
+.type-caption-12 {
+    font-family: var(--font-sans-serif);
+    font-size: var(--text-12);
+    font-weight: 400;
+    line-height: normal;
+}
+
+.type-caption-12-400 {
+    font-family: var(--font-sans-serif);
+    font-size: var(--text-12);
+    font-weight: 400;
+    line-height: normal;
+}
+
+.type-body {
+    font-family: var(--font-helvetica-neue);
+    font-size: var(--text-9);
+    font-weight: 400;
+    line-height: 1.00;
+    letter-spacing: var(--tracking-0-18);
+}
+
+/* Created by Peek from maggie-app.com */
+/* Version: 0.8.9.1 */
+/* Created at: 29/04/2026, 02:58:40 */
+/* Learn more: https://trypeek.app */

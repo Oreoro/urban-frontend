@@ -1,70 +1,135 @@
 export const pages = {
   about: {
-    title: "About Maggie",
-    description: "The story behind the free parenting activities app made by mums, for mums.",
+    title: "About UrbanEvents",
+    description: "The story behind the event management platform built for Pakistan.",
     theme: "theme-peach",
     eyebrow: "About",
-    heading: "made by mums, powered by tech, built for real life.",
-    subheading: "why is it so hard to find free, fun THINGS to do with kids?",
+    heading: "built for the creators, powered by tech, simplified for you.",
+    subheading: "why is it so hard to manage small events without a mess of spreadsheets?",
     image: {
-      src: "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=1400&q=80",
-      alt: "Mum playing with kids at the park"
+      src: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=80",
+      alt: "Event organizers planning a workshop"
     },
     body: [
-      "Liv Luker (left) and Eimear Colleran (right) met in 2017 at a tech startup — Liv’s a whiz with numbers, operations and finance, while Eimear’s all things marketing, brand and storytelling. Different strengths, same goal. What they share is a deep love of tech, clever apps, and finding smart solutions to everyday problems.",
-      "They entered motherhood around the same time and quickly realised: You can have it all just not at once and that's ok. Between park hangs and late-night texts, they kept circling the same question:",
-      "One evening armed with wine and a laptop they mapped out the app they wished existed. Now they’ve built it."
+      "UrbanEvents was born out of frustration. As former student organizers and event enthusiasts, we spent more time managing registration lists and verifying payments than actually enjoying the events we worked so hard to create.",
+      "We realized that while high-end corporate software exists, it's often too complex and expensive for students, society leaders, and independent workshop hosts in Pakistan. We needed something localized, reliable, and accessible.",
+      "One weekend, we mapped out the platform we wished we had during our university days. Now, we've built it for the next generation of Pakistani organizers."
     ],
-    pullquote: "Parenting should feel lighter.",
+    pullquote: "Event planning should feel lighter.",
     close: "That's the idea behind everything we build.",
-    ctaHeading: "Got questions, feedback, or just want to say hi?",
+    ctaHeading: "Got questions, feedback, or want to partner with us?",
     ctaLabel: "REACH OUT",
     ctaHref: "/contact"
   },
-  forbusiness: {
-    title: "Add Your Venue",
-    description: "List your kids' activity or venue on the Maggie app.",
+  features: {
+    title: "Features | UrbanEvents",
+    description: "Everything you need to launch ticketing in minutes.",
+    theme: "theme-mint",
+    eyebrow: "Features",
+    heading: "EVERYTHING YOU NEED TO LAUNCH TICKETING IN MINUTES",
+    subheading: "Pro tools for student organizers, without the pro price tag.",
+    items: [
+      {
+        title: "Sell Tickets Fast",
+        desc: "Create a beautiful event page and start selling tickets in less than 5 minutes.",
+        icon: "ticket",
+        color: "var(--color-pink)"
+      },
+      {
+        title: "QR Code Check-in",
+        desc: "Scan attendees at the door with our blazing fast mobile-friendly scanner.",
+        icon: "qr",
+        color: "var(--color-yellow)"
+      },
+      {
+        title: "Local Payments",
+        desc: "Seamlessly accept EasyPaisa, JazzCash, and bank transfers without hassle.",
+        icon: "wallet",
+        color: "var(--color-cyan)"
+      },
+      {
+        title: "Live Analytics",
+        desc: "Track sales, page views, and check-ins in real-time from your dashboard.",
+        icon: "chart",
+        color: "var(--color-peach)"
+      }
+    ]
+  },
+  pricing: {
+    title: "Pricing | UrbanEvents",
+    description: "Simple, transparent pricing for any event size.",
     theme: "theme-cyan",
-    eyebrow: "ADD VENUE",
-    heading: "ADD YOUR VENUE TO MAGGIE!",
-    subheading: "GOT A VENUE THAT KIDS LOVE? WE'RE ALL EARS.",
-    body: [
-      "Enter your details below and we'll get back to you quicker than your kid can lose a shoe in the car."
+    eyebrow: "Pricing",
+    heading: "SIMPLE PRICING FOR EVERY EVENT!",
+    subheading: "NO HIDDEN FEES. JUST POWERFUL TOOLS.",
+    tiers: [
+      {
+        name: "Free Events",
+        price: "RS 0",
+        period: "forever",
+        description: "Everything you need to host a free event, workshop, or meetup.",
+        color: "var(--color-mint)",
+        features: [
+          "Unlimited tickets",
+          "Custom event page",
+          "QR Check-in tool",
+          "Basic analytics"
+        ],
+        cta: "Start for Free",
+        href: "https://app.urbanevents.pk"
+      },
+      {
+        name: "Paid Events",
+        price: "5%",
+        period: "+ Rs 50/ticket",
+        description: "For organizers selling tickets, passes, or taking registrations.",
+        color: "var(--color-peach)",
+        features: [
+          "Everything in Free",
+          "Local payment gateways",
+          "Automated payouts",
+          "Priority email support"
+        ],
+        cta: "Create Paid Event",
+        href: "https://app.urbanevents.pk"
+      }
     ],
-    form: "venue"
+    ctaHeading: "Ready to sell tickets?",
+    ctaLabel: "Create Your Event",
+    ctaHref: "https://app.urbanevents.pk"
   },
   android: {
     title: "Coming Soon",
-    description: "Maggie is coming to Android soon.",
+    description: "The UrbanEvents mobile app for organizers.",
     theme: "theme-yellow",
-    eyebrow: "Android",
-    heading: "Android is coming soon!",
+    eyebrow: "Organizer App",
+    heading: "Management on the go!",
     body: [
-      "We're working on bringing Maggie to Android. Sign up to be first to know when it launches.",
-      "In the meantime, Maggie is available on the App Store for iPhone."
+      "We're working on a dedicated app for real-time check-ins and analytics. Sign up to be first to know when it launches.",
+      "In the meantime, the dashboard is fully responsive on all mobile browsers."
     ]
   },
   contact: {
-    title: "Contact Maggie",
-    description: "Get in touch with the Maggie team.",
+    title: "Contact UrbanEvents",
+    description: "Get in touch with the UrbanEvents team.",
     theme: "theme-mint",
     eyebrow: "Contact",
     heading: "Get in touch!",
     emailIntro: "VIA EMAIL",
-    email: "hello@maggie-app.com",
-    formHeading: "Or Enquiry",
-    formIntro: "We’ll get back to you faster than a toddler can spill a drink.",
+    email: "hello@urbanevents.pk",
+    formHeading: "Send an Enquiry",
+    formIntro: "We’ll get back to you faster than a sold-out ticket.",
     form: "contact"
   },
   policies: {
-    title: "Maggie Policies",
-    description: "Terms, privacy, and legal information for the Maggie app.",
+    title: "UrbanEvents Policies",
+    description: "Terms, privacy, and legal information for UrbanEvents.",
     theme: "theme-pink",
     eyebrow: "Policies",
     heading: "Terms, privacy, and legal information.",
     body: [
-      "This page contains the legal policies for the Maggie app.",
-      "For questions about our policies, contact us at hello@maggie-app.com."
+      "This page contains the legal policies for the UrbanEvents platform.",
+      "For questions about our policies, contact us at hello@urbanevents.pk."
     ]
   }
 };

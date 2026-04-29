@@ -1,0 +1,105 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { pages } from "@content/pages";
+import MaggieFace from "@components/MaggieFace.astro";
+
+const page = pages.features;
+---
+
+<Layout title={page.title} description={page.description} canonical="/features" bodyClass={page.theme}>
+  <section class="subpage-section" style="padding-bottom: 80px;">
+    <div class="subpage-inner" data-reveal style="position: relative; max-width: 900px; margin: 0 auto; text-align: center;">
+      <!-- Floating face decoration -->
+      <div style="position: absolute; top: -40px; right: -40px; opacity: 0.8; transform: rotate(10deg); z-index: 1;">
+        <MaggieFace size={80} variant="badge" bg="#FBF681" />
+      </div>
+      <div style="position: absolute; bottom: -40px; left: -60px; opacity: 0.8; transform: rotate(-15deg); z-index: 1;">
+        <MaggieFace size={60} variant="section" bg="#fdc068" />
+      </div>
+
+      <p class="subpage-eyebrow" style="display: inline-block; margin-bottom: 24px;">{page.eyebrow}</p>
+      <h1 class="subpage-heading" style="margin-bottom: 24px; font-size: clamp(40px, 8vw, 80px);">{page.heading}</h1>
+      <p style="font-size: clamp(20px, 3vw, 28px); color: var(--ink); font-family: var(--font-strong); line-height: 1.4; margin-bottom: 48px;">
+        {page.subheading}
+      </p>
+    </div>
+  </section>
+
+  <section class="features-grid-section" style="padding: 0 24px 120px;">
+    <div class="container-inner" style="max-width: 1000px;">
+      <div class="neo-grid">
+        {page.items.map((item) => (
+          <div class="neo-card" style={`background: ${item.color};`} data-reveal>
+            <div class="neo-card-icon">
+              {item.icon === 'ticket' && <MaggieFace size={60} variant="section" />}
+              {item.icon === 'qr' && <MaggieFace size={60} variant="badge" />}
+              {item.icon === 'wallet' && <MaggieFace size={60} variant="hero" />}
+              {item.icon === 'chart' && <MaggieFace size={60} variant="icon" />}
+            </div>
+            <h3 class="neo-card-title">{item.title}</h3>
+            <p class="neo-card-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA overlap card -->
+  <section class="section-overlap-card" style="text-align: center; padding: 80px 32px; background: var(--yellow);">
+    <div class="section-inner" data-reveal>
+      <div style="margin-bottom: 24px; display: inline-block; transform: rotate(-5deg);">
+        <MaggieFace size={80} variant="hero" bg="#fccddc" />
+      </div>
+      <h2 style="font-family: var(--font-display); font-size: clamp(32px, 5vw, 60px); color: var(--ink); text-transform: uppercase; margin-bottom: 32px;">Ready to sell tickets?</h2>
+      <a href="https://app.urbanevents.pk" class="pill-button" style="font-size: 20px; background: var(--pink);">Create Your Event</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .neo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+  .neo-card {
+    border: 3px solid var(--ink);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .neo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 0 var(--ink);
+  }
+  .neo-card-icon {
+    margin-bottom: 24px;
+    background: var(--white);
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0 var(--ink);
+    transform: rotate(-5deg);
+  }
+  .neo-card-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+  .neo-card-desc {
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+</style>

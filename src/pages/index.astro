@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import MomentsCarousel from "@components/MomentsCarousel.astro";
 import { site } from "@content/site";
 import { home } from "@content/home";
 ---
@@ -7,29 +8,10 @@ import { home } from "@content/home";
 <Layout title={site.title} description={site.description} canonical="/">
 
   <!-- ===== HERO ===== -->
-  <section class="hero-section" id="start">
-    <div class="hero-inner">
-      <p class="type-heading">{home.hero.eyebrow}</p>
-      <h1 class="type-large-title">{home.hero.title}</h1>
-      <p class="hero-sub" style="font-family: var(--font-body); font-size: clamp(16px,2vw,20px); color: var(--ink-soft); max-width: 580px;">{home.hero.sub}</p>
-      <div class="cta-row">
-        <a class="pill-button" href={home.hero.primaryCtaHref} id="hero-app-store-cta">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          {home.hero.primaryCta}
-        </a>
-      </div>
-
-      <!-- Phone mockups -->
-      <div class="phones" aria-hidden="true">
-        <div class="phone phone-1" style="background: var(--cream);"></div>
-        <div class="phone phone-2" style="background: var(--white);"></div>
-        <div class="phone phone-3" style="background: var(--lavender);"></div>
-      </div>
-    </div>
-  </section>
+  <MomentsCarousel />
 
   <!-- ===== MARQUEE (yellow) ===== -->
-  <section class="marquee-section">
+  <section class="marquee-section" style="padding-top: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 3px solid var(--color-ink); display: flex; flex-direction: column; justify-content: center; min-height: 40vh;">
     <div class="marquee-inner">
       <p class="type-large-title-120" data-reveal>{home.marquee}</p>
       <p class="marquee-tag" data-reveal>
@@ -39,52 +21,35 @@ import { home } from "@content/home";
   </section>
 
   <!-- ===== FEATURES (cream) ===== -->
-  <section class="section-features">
-    <div class="features-inner">
-      <h2 class="type-h3" data-reveal style="margin-bottom: var(--space-md);">{home.features.heading}</h2>
-      <div class="features-grid">
-        <!-- Main feature card (pink) -->
-        <div class="feature-main-card" data-reveal>
-          <h3 class="type-h2">{home.features.main}</h3>
-        </div>
-        <!-- Chip scroller (lavender) -->
-        <div class="todo-scroll" data-reveal aria-label="Activity ideas scroller">
-          <div class="todo-track" aria-hidden="true">
-            {home.features.todoItems.map(item => (
-              <span class="todo-chip">{item}</span>
-            ))}
-            {/* Duplicate for seamless loop */}
-            {home.features.todoItems.map(item => (
-              <span class="todo-chip">{item}</span>
-            ))}
-          </div>
-        </div>
+  <section class="section-features" style="border-bottom: 3px solid var(--color-ink);">
+    <div class="features-inner" style="max-width: 800px; margin: 0 auto; text-align: center; padding: var(--space-xl) 0;">
+      <h2 class="type-h3" data-reveal style="margin-bottom: var(--space-sm);">{home.features.heading}</h2>
+      <div data-reveal>
+        <h3 class="type-h2" style="margin-bottom: var(--space-md);">{home.features.main}</h3>
+        <p class="type-body" style="font-size: 24px; color: var(--ink-soft); line-height: 1.6;">
+          {home.features.todoItems.join(', ')}
+        </p>
       </div>
     </div>
   </section>
 
   <!-- ===== MISSION (cyan) ===== -->
-  <section class="section-mission">
+  <section class="section-mission" style="padding-bottom: var(--space-xl); border-bottom: 3px solid var(--color-ink);">
     <div class="floating-items" aria-hidden="true">
-      <div class="float-item float-item-1 sticker">
-        <span style="font-size: 48px;">🧸</span>
-        <span class="type-h4">Toys</span>
+      <div class="float-item float-item-1 sticker-pill bg-pink">
+        <span class="type-h4">Tickets</span>
       </div>
-      <div class="float-item float-item-2 sticker">
-        <span style="font-size: 48px;">🎨</span>
-        <span class="type-h4">Art</span>
+      <div class="float-item float-item-2 sticker-pill bg-lavender">
+        <span class="type-h4">Events</span>
       </div>
-      <div class="float-item float-item-3 sticker">
-        <span style="font-size: 48px;">🛝</span>
-        <span class="type-h4">Playgrounds</span>
+      <div class="float-item float-item-3 sticker-pill bg-mint">
+        <span class="type-h4">Analytics</span>
       </div>
-      <div class="float-item float-item-4 sticker">
-        <span style="font-size: 48px;">🎵</span>
-        <span class="type-h4">Music</span>
+      <div class="float-item float-item-4 sticker-pill bg-peach">
+        <span class="type-h4">Workshops</span>
       </div>
-      <div class="float-item float-item-5 sticker">
-        <span style="font-size: 48px;">📚</span>
-        <span class="type-h4">Story Time</span>
+      <div class="float-item float-item-5 sticker-pill bg-yellow">
+        <span class="type-h4">Societies</span>
       </div>
     </div>
     <div class="mission-inner">
@@ -93,47 +58,72 @@ import { home } from "@content/home";
     </div>
   </section>
 
-  <!-- ===== ORIGIN (peach) ===== -->
-  <section class="section-origin">
-    <div class="origin-inner">
-      <p class="type-heading" data-reveal>{home.origin.intro}</p>
-      <h2 class="type-large-title" data-reveal>{home.origin.headline}</h2>
-      <p class="type-body" style="font-size: clamp(18px,2vw,24px); color: var(--ink-soft); max-width: 600px;" data-reveal>{home.origin.body}</p>
-      <a class="pill-button" href={home.origin.ctaHref} id="origin-about-cta" data-reveal
-        style="background: var(--white); color: var(--ink);">
-        {home.origin.ctaLabel}
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== STATS (cream) ===== -->
-  <section class="section-stats">
-    <div class="stats-inner">
-      <div class="stats-headline" data-reveal>
-        <span class="stats-prefix">{home.stats.prefix}</span>
-        <span class="stats-count">{home.stats.count.toLocaleString()}+</span>
-      </div>
-      <p class="stats-suffix" data-reveal>{home.stats.suffix}</p>
-      <p class="stats-tag" data-reveal>{home.stats.tag}</p>
-    </div>
-  </section>
-
-  <!-- ===== FINAL CTA (mint) ===== -->
-  <section class="section-final-cta">
-    <div class="final-cta-inner">
-      <h2 class="type-large-title-100" data-reveal>{home.cta.heading}</h2>
-      <div class="cta-row" data-reveal>
-        <a class="pill-button" href={home.cta.primaryCtaHref} id="footer-app-store-cta">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          {home.cta.primaryCta}
+  <!-- ===== ORIGIN (cream overlap card on peach bg) ===== -->
+  <div class="section-origin-bg" style="background: var(--peach); padding-bottom: var(--space-xl);">
+    <section class="section-origin">
+      <div class="origin-inner">
+        <p class="type-heading" data-reveal>{home.origin.intro}</p>
+        <h2 class="type-large-title" data-reveal>{home.origin.headline}</h2>
+        <div data-reveal style="background-color: var(--color-white); border: 3px solid var(--color-ink); border-radius: var(--radius-lg); padding: var(--space-md); box-shadow: var(--shadow-sm); max-width: 600px; transform: rotate(-1deg);">
+          <p class="type-body" style="font-size: clamp(20px,2.5vw,26px); color: var(--ink); font-weight: 500; line-height: 1.5;">{home.origin.body}</p>
+        </div>
+        <a class="pill-button" href={home.origin.ctaHref} id="origin-about-cta" data-reveal
+          style="background: var(--color-mint); color: var(--ink); margin-top: var(--space-sm);">
+          {home.origin.ctaLabel}
         </a>
       </div>
+    </section>
+  </div>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="section-final-cta" style="background: var(--color-mint); border-radius: 50% 50% 0 0 / 150px 150px 0 0; padding: 160px 32px 100px; text-align: center; border-top: 3px solid var(--color-ink); margin-top: -80px; position: relative; z-index: 10;">
+    <div class="final-cta-inner" style="max-width: var(--container-max); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px;">
+      <h2 class="type-large-title" style="font-size: clamp(44px, 8vw, 100px); color: var(--ink);">{home.cta.heading}</h2>
+      <a class="pill-button" href={home.cta.primaryCtaHref} style="font-size: 18px; padding: 0 40px; min-height: 60px; background: var(--color-yellow);">{home.cta.primaryCta}</a>
     </div>
   </section>
 
 </Layout>
 
 <style>
+  /* ---- Feature card face decoration ---- */
+  .feature-main-card {
+    position: relative;
+  }
+
+  /* ---- Floating face stickers in mission ---- */
+  .sticker-pill {
+    padding: 12px 24px;
+    border: 3px solid var(--color-ink);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bg-pink { background-color: var(--color-pink); }
+  .bg-lavender { background-color: var(--color-lavender); }
+  .bg-mint { background-color: var(--color-mint); }
+  .bg-peach { background-color: var(--color-peach); }
+  .bg-yellow { background-color: var(--color-yellow); }
+
+  /* ---- Origin section face ---- */
+  .section-origin {
+    position: relative;
+  }
+
+  /* ---- Final CTA giant background face ---- */
+  .section-final-cta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ---- Gentle floating animation ---- */
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+  }
+
   /* Phone mockups */
   .phones {
     position: relative;

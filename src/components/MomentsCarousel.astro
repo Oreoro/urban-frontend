@@ -1,0 +1,472 @@
+---
+import MaggieMascot from "./MaggieMascot.astro";
+import MaggieFace from "./MaggieFace.astro";
+---
+
+<section class="moments-carousel" aria-label="Brand moments">
+  <div class="carousel-track">
+    <!-- SLIDE 1: HERO — Giant yellow semi-circle face -->
+    <div class="carousel-slide slide-hero" id="moment-hero">
+      <div class="hero-sunrise"></div>
+      <div class="slide-content hero-content">
+        <div class="mascot-face hero-face">
+          <MaggieFace size={300} variant="icon" />
+        </div>
+        <h1 class="type-large-title">TURN CHAOS INTO CHUCKLES WITH MAGGIE!</h1>
+        <div class="hero-badges">
+          <div class="badge-row">
+            <div class="badge-item">
+              <div class="badge-icon apple"></div>
+              <div class="badge-text">
+                <span class="badge-sub">Download on the</span>
+                <span class="badge-main">App Store</span>
+              </div>
+            </div>
+            <div class="badge-item">
+              <div class="badge-icon google"></div>
+              <div class="badge-text">
+                <span class="badge-sub">GET IT ON</span>
+                <span class="badge-main">Google Play</span>
+              </div>
+              <span class="request-tag">REQUEST</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: FACE MOMENT — Giant cyan blob face on pink -->
+    <div class="carousel-slide slide-pink" id="moment-face">
+      <div class="hero-sunrise bg-cyan-blob"></div>
+      <div class="slide-content hero-content">
+        <div class="mascot-face hero-face">
+          <MaggieFace size={400} variant="icon" />
+        </div>
+        <h2 class="type-large-title">BUILT FOR ORGANIZERS</h2>
+        <div class="cta-group">
+          <a href="https://app.urbanevents.pk" class="pill-button" style="font-size: 24px; padding: 20px 48px; background: var(--color-white); color: var(--color-ink); border: 2px solid var(--color-ink); box-shadow: 6px 6px 0 var(--color-ink);">
+            Start Selling
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: BODY MASCOT — Full character on lavender -->
+    <div class="carousel-slide slide-mascot" id="moment-lavender">
+      <div class="mascot-face large">
+        <MaggieMascot size={500} color="#0E4D3C" accent="#FBF681" />
+      </div>
+    </div>
+
+    <!-- SLIDE 4: MISSION / STICKER BOOK -->
+    <div class="carousel-slide slide-mission" id="moment-mission">
+      <div class="sticker-book">
+        <!-- Floating face stickers in corners -->
+        <div class="sticker-item float-1 sticker" style="top: 8%; left: 6%;">
+          <MaggieFace size={80} variant="section" bg="#fccddc" />
+          <span class="type-heading sticker-note">sell out fast</span>
+        </div>
+        <div class="sticker-item float-2 sticker" style="top: 12%; right: 8%;">
+          <MaggieFace size={80} variant="section" bg="#f6bbfd" />
+          <span class="type-heading sticker-note">easy check-in</span>
+        </div>
+        <div class="sticker-item float-3 sticker" style="bottom: 12%; left: 10%;">
+          <MaggieFace size={80} variant="section" bg="#82eda6" />
+          <span class="type-heading sticker-note">spread the word</span>
+        </div>
+        <div class="sticker-item float-4 sticker" style="bottom: 15%; right: 6%;">
+          <MaggieFace size={80} variant="section" bg="#fdc068" />
+          <span class="type-heading sticker-note">track growth</span>
+        </div>
+
+        <div class="slide-content">
+          <h2 class="type-large-title">URBANEVENTS IS ON A MISSION TO LIGHTEN THE LOAD FOR ORGANIZERS.</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION ARROWS -->
+  <button class="carousel-arrow arrow-prev" aria-label="Previous slide" onclick="document.querySelector('.carousel-track').scrollBy({left: -window.innerWidth, behavior: 'smooth'})">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  </button>
+  <button class="carousel-arrow arrow-next" aria-label="Next slide" onclick="document.querySelector('.carousel-track').scrollBy({left: window.innerWidth, behavior: 'smooth'})">
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </button>
+
+  <div class="carousel-nav">
+    <a href="#moment-hero" class="nav-dot" aria-label="Slide 1"></a>
+    <a href="#moment-face" class="nav-dot" aria-label="Slide 2"></a>
+    <a href="#moment-lavender" class="nav-dot" aria-label="Slide 3"></a>
+    <a href="#moment-mission" class="nav-dot" aria-label="Slide 4"></a>
+  </div>
+</section>
+
+<style>
+  .moments-carousel {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .carousel-track::-webkit-scrollbar { display: none; }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-xl) var(--space-md) 180px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-hero { background: var(--color-mint); overflow: hidden; }
+  
+  .hero-sunrise {
+    position: absolute;
+    bottom: -15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250vw;
+    height: 140vh;
+    background: var(--color-yellow);
+    border-radius: 50%;
+    border: 4px solid var(--color-ink);
+    z-index: 1;
+  }
+
+  .hero-sunrise.bg-cyan-blob {
+    background: var(--color-cyan);
+    bottom: -100px;
+    width: 250vw;
+    height: 180vh;
+  }
+
+  .hero-content {
+    z-index: 10;
+    margin-top: -100px;
+  }
+
+  .hero-face {
+    margin-bottom: 20px;
+  }
+
+  .hero-badges {
+    margin-top: 40px;
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .badge-item {
+    position: relative;
+    background: var(--color-white);
+    border: 2px solid var(--color-ink);
+    border-radius: 12px;
+    padding: 6px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 4px 4px 0 var(--color-ink);
+    min-height: 52px;
+    text-align: left;
+  }
+
+  .badge-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--color-ink);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .badge-icon.apple {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E");
+  }
+
+  .badge-icon.google {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256.6L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l220.7-221.3 60.7 60.7L104.6 499z'/%3E%3C/svg%3E");
+  }
+
+  .badge-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .badge-sub {
+    font-size: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+
+  .badge-main {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  .request-tag {
+    position: absolute;
+    bottom: -15px;
+    right: -10px;
+    background: var(--color-mint);
+    border: 2px solid var(--color-ink);
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-family: var(--font-strong);
+    font-size: 10px;
+    transform: rotate(5deg);
+    z-index: 10;
+  }
+
+  .slide-pink { background: var(--color-pink); }
+  .slide-mascot { background: var(--color-lavender); }
+  .slide-mission { background: var(--color-cyan); }
+
+  .bg-blobs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .blob {
+    position: absolute;
+    width: 350px;
+    height: 700px;
+    border-radius: 200px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.9;
+  }
+
+  .blob-left { left: -150px; transform: translateY(-50%) rotate(-10deg); }
+  .blob-right { right: -150px; transform: translateY(-50%) rotate(10deg); }
+
+  .slide-content {
+    max-width: 1100px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  /* ---- MASCOT ICON WRAPPER (pink rounded square, maggie-app.com style) ---- */
+  .mascot-icon-wrapper {
+    background: #F8C8D8;
+    border-radius: 28px;
+    padding: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0px var(--color-ink);
+    border: 2px solid var(--color-ink);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .mascot-icon-wrapper:hover {
+    transform: translateY(-4px) rotate(-3deg);
+    box-shadow: 6px 8px 0px var(--color-ink);
+  }
+
+  .mascot-face.mini .maggie-face {
+    width: 100px;
+    height: auto;
+  }
+
+  .mascot-face.large {
+    z-index: 10;
+  }
+
+  .mascot-face.large .maggie-face {
+    width: min(80vw, 600px);
+    height: auto;
+    animation: face-bounce 4s ease-in-out infinite;
+  }
+
+  .mascot-face.large .maggie-mascot {
+    width: min(85vw, 700px);
+    height: auto;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .type-large-title {
+    font-size: clamp(48px, 9vw, 120px);
+    line-height: 0.85;
+    color: var(--color-ink);
+    z-index: 10;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--color-ink);
+    background: var(--color-white);
+    color: var(--color-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: 4px 4px 0px var(--color-ink);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .carousel-arrow:hover {
+    transform: translateY(-52%) scale(1.05);
+    box-shadow: 2px 2px 0px var(--color-ink);
+  }
+
+  .arrow-prev { left: 32px; }
+  .arrow-next { right: 32px; }
+
+  .carousel-nav {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+  }
+
+  .nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-ink-faint);
+    border: 2px solid var(--color-ink);
+    transition: background 0.3s ease;
+  }
+
+  .nav-dot:hover { background: var(--color-ink-soft); }
+
+  .store-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .store-btn svg {
+    border: 2px solid var(--color-ink);
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px var(--color-ink);
+    transition: transform 0.2s ease;
+  }
+
+  .store-btn:hover svg {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--color-ink);
+  }
+
+  .store-btn-wrapper { position: relative; }
+
+  .request-tag {
+    position: absolute;
+    bottom: -15px;
+    right: -10px;
+    background: var(--color-mint);
+    border: 2px solid var(--color-ink);
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-family: var(--font-strong);
+    font-size: 10px;
+    transform: rotate(5deg);
+    z-index: 10;
+  }
+
+  /* STICKER BOOK */
+  .sticker-book {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .sticker-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 1;
+  }
+
+  .sticker-item .maggie-face {
+    width: 80px;
+    height: auto;
+    border-radius: 16px;
+    filter: drop-shadow(3px 3px 0 var(--color-ink));
+  }
+
+  .sticker-note {
+    font-family: var(--font-script);
+    font-size: 24px;
+    color: var(--color-ink);
+    transform: rotate(-5deg);
+  }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+
+  @keyframes face-bounce {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.02) rotate(-1deg); }
+    50% { transform: scale(1.04) rotate(0deg); }
+    75% { transform: scale(1.02) rotate(1deg); }
+  }
+
+  .float-1 { animation: float-anim 5s ease-in-out infinite; }
+  .float-2 { animation: float-anim 6s ease-in-out infinite 0.5s; }
+  .float-3 { animation: float-anim 5.5s ease-in-out infinite 1s; }
+  .float-4 { animation: float-anim 7s ease-in-out infinite 0.2s; }
+
+  @keyframes float-anim {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-arrow { width: 40px; height: 40px; }
+    .arrow-prev { left: 16px; }
+    .arrow-next { right: 16px; }
+    .mascot-face.large .maggie-face { width: 85vw; }
+    .mascot-face.large .maggie-mascot { width: 90vw; }
+    .sticker-item .maggie-face { width: 60px; }
+    .store-buttons { flex-direction: column; }
+  }
+</style>

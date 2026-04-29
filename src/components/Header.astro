@@ -1,20 +1,33 @@
 ---
 import { site } from "@content/site";
+import MaggieFace from "./MaggieFace.astro";
 ---
 
 <header class="site-header">
   <div class="container-inner">
+    <!-- LEFT NAV -->
+    <nav class="nav-left" aria-label="Primary navigation (left)">
+      {site.nav.slice(0, 2).map((item) => {
+        let bgClass = "";
+        if (item.label === "FEATURES") bgClass = "bg-cyan";
+        if (item.label === "ABOUT") bgClass = "bg-peach";
+        return <a class={`nav-link ${bgClass}`} href={item.href}>{item.label}</a>;
+      })}
+    </nav>
+
+    <!-- CENTER BRAND -->
     <a class="brand-mark" href="/" aria-label="Maggie home">
-      <span class="brand-name">maggie</span>
+      <div class="mascot-badge">
+        <MaggieFace size={32} variant="icon" fg="var(--color-ink)" />
+      </div>
     </a>
 
-    <nav class="nav-main" aria-label="Primary navigation">
-      {site.nav.map((item) => {
+    <!-- RIGHT NAV -->
+    <nav class="nav-right" aria-label="Primary navigation (right)">
+      {site.nav.slice(2).map((item) => {
         let bgClass = "";
-        if (item.label === "FAQS") bgClass = "bg-pink";
-        if (item.label === "ABOUT") bgClass = "bg-peach";
+        if (item.label === "PRICING") bgClass = "bg-pink";
         if (item.label === "CONTACT") bgClass = "bg-mint";
-        if (item.label === "ADD VENUE") bgClass = "bg-cyan";
         return <a class={`nav-link ${bgClass}`} href={item.href}>{item.label}</a>;
       })}
     </nav>
@@ -28,7 +41,7 @@ import { site } from "@content/site";
       {site.nav.map((item) => (
         <a class="nav-link" href={item.href}>{item.label}</a>
       ))}
-      <a class="button button-primary" href={site.appStoreUrl}>Download App</a>
+      <a class="button button-primary" href={site.appStoreUrl}>Go to App</a>
     </nav>
   </div>
 </header>
@@ -44,3 +57,29 @@ import { site } from "@content/site";
     menuButton.classList.toggle("is-open", !isOpen);
   });
 </script>
+
+<style>
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .mascot-badge {
+    background-color: var(--color-mint);
+    border: 2px solid var(--color-ink);
+    border-radius: 12px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0 var(--color-ink);
+  }
+  .brand-mark:hover .mascot-badge {
+    transform: scale(1.1) rotate(5deg);
+  }
+  .nav-link.bg-pink { background: var(--color-pink); }
+  .nav-link.bg-peach { background: var(--color-pink); } /* Image 1 shows pink for About too */
+  .nav-link.bg-mint { background: var(--color-mint); }
+  .nav-link.bg-cyan { background: var(--color-cyan); }
+</style>

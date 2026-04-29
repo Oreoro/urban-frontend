@@ -1,35 +1,47 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { pages } from "@content/pages";
+import MaggieFace from "@components/MaggieFace.astro";
 
 const page = pages.about;
 ---
 
 <Layout title={page.title} description={page.description} canonical="/about" bodyClass={page.theme}>
-  <section class="subpage-section">
-    <div class="subpage-inner" data-reveal>
-      <p class="subpage-eyebrow">{page.eyebrow}</p>
-      <h1 class="subpage-heading">{page.heading}</h1>
-      
-      <div class="about-photo" style="margin: 40px 0;">
-        <img src={page.image.src} alt={page.image.alt} />
+  <section class="subpage-section" style="padding-bottom: 120px;">
+    <div class="subpage-inner" data-reveal style="position: relative;">
+      <!-- Floating face decoration -->
+      <div style="position: absolute; top: -20px; right: 0; opacity: 0.8; transform: rotate(10deg);">
+        <MaggieFace size={80} variant="badge" bg="#FBF681" />
       </div>
 
-      <div class="subpage-body" style="display: grid; gap: 24px;">
+      <p class="subpage-eyebrow">{page.eyebrow}</p>
+      <h1 class="subpage-heading" style="max-width: 800px;">{page.heading}</h1>
+      
+      <div class="about-photo" style="margin: 60px 0;">
+        <img src={page.image.src} alt={page.image.alt} style="border-radius: var(--radius-xl); border: 3px solid var(--ink); box-shadow: var(--shadow); width: 100%;" />
+      </div>
+
+      <div class="subpage-body" style="display: grid; gap: 24px; max-width: 700px;">
         {page.body.map((paragraph) => <p>{paragraph}</p>)}
       </div>
 
-      <h2 class="subpage-subheading" style="margin-top: 60px;">{page.subheading}</h2>
+      <h2 class="subpage-subheading" style="margin-top: 80px; max-width: 800px;">{page.subheading}</h2>
       
-      <div class="subpage-body">
-        <p>{page.pullquote}</p>
+      <div class="subpage-body" style="max-width: 700px;">
+        <p style="font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); line-height: 1.1; margin: 40px 0; color: var(--ink); text-transform: uppercase;">"{page.pullquote}"</p>
         <p>{page.close}</p>
       </div>
+    </div>
+  </section>
 
-      <div style="margin-top: 60px;">
-        <p style="font-family: var(--font-strong); margin-bottom: 24px;">{page.ctaHeading}</p>
-        <a href={page.ctaHref} class="pill-button">{page.ctaLabel}</a>
+  <!-- CTA overlap card -->
+  <section class="section-overlap-card" style="text-align: center; padding: 80px 32px;">
+    <div class="section-inner" data-reveal>
+      <div style="margin-bottom: 24px; display: inline-block; transform: rotate(-5deg);">
+        <MaggieFace size={60} variant="icon" />
       </div>
+      <p style="font-family: var(--font-display); font-size: clamp(24px, 4vw, 40px); margin-bottom: 32px; color: var(--ink); text-transform: uppercase;">{page.ctaHeading}</p>
+      <a href={page.ctaHref} class="pill-button">{page.ctaLabel}</a>
     </div>
   </section>
 </Layout>

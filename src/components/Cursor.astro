@@ -1,0 +1,51 @@
+---
+/**
+ * Cursor — A custom cursor inspired by maggie-app.com.
+ * A small green pointer that follows the mouse.
+ */
+---
+<div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5.5 3.5L18.5 12L5.5 20.5V3.5Z" fill="#82eda6" stroke="#03594d" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<style>
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    display: none;
+    transition: transform 0.1s ease-out;
+  }
+
+  @media (pointer: fine) {
+    .custom-cursor {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const cursor = document.getElementById('custom-cursor');
+  
+  if (cursor) {
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+
+    document.addEventListener('mousedown', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    });
+
+    document.addEventListener('mouseup', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+  }
+</script>
