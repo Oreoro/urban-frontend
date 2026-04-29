@@ -284,7 +284,7 @@ p {
 /* ---- HEADER (Maggie-style: left-nav | centered-mascot | right-nav) ---- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  padding: 16px 0;
+  padding: 12px 0;
   background: transparent;
   transition: box-shadow 300ms ease, background 300ms ease;
 }
