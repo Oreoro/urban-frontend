@@ -1,4 +1,6 @@
 ---
+import { site } from "@content/site";
+
 interface Props {
   type?: "contact" | "venue";
 }
@@ -6,20 +8,49 @@ interface Props {
 const { type = "contact" } = Astro.props;
 const fields =
   type === "venue"
-    ? ["What's your name?", "Venue's name", "Your email"]
-    : ["What's your name?", "Your email"];
+    ? [
+        { name: "name", label: "Your name", type: "text" },
+        { name: "venue", label: "Venue's name", type: "text" },
+        { name: "email", label: "Your email", type: "email" }
+      ]
+    : [
+        { name: "name", label: "Your name", type: "text" },
+        { name: "email", label: "Your email", type: "email" }
+      ];
 ---
 
-<form class="lead-form">
-  {fields.map((placeholder) => (
+<form class="lead-form" data-lead-form data-lead-email={site.email}>
+  {fields.map((field) => (
     <label>
-      <span>{placeholder}</span>
-      <input type={placeholder.includes("email") ? "email" : "text"} placeholder={placeholder} />
+      <span>{field.label}</span>
+      <input type={field.type} name={field.name} placeholder={field.label} autocomplete={field.type === "email" ? "email" : "name"} required />
     </label>
   ))}
   <label>
-    <span>Send us a message (Optional)</span>
-    <textarea placeholder="Enter"></textarea>
+    <span>Message (optional)</span>
+    <textarea name="message" placeholder="Tell us about your event"></textarea>
   </label>
-  <button class="pill-button tone-green" type="button">Submit</button>
+  <button class="button button-brand button-medium" type="submit">Send message</button>
+  <p class="lead-form-status" data-lead-status hidden role="status"></p>
 </form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("[data-lead-form]").forEach((form) => {
+    const status = form.querySelector<HTMLElement>("[data-lead-status]");
+    const email = form.dataset.leadEmail ?? "hello@urbanevents.pk";
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const subject = "Enquiry from urbanevents.pk";
+      const body = Array.from(data.entries())
+        .filter(([, v]) => String(v).trim())
+        .map(([k, v]) => `${k}: ${v}`)
+        .join("\n");
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if (status) {
+        status.hidden = false;
+        status.textContent = "Your email app should open — if it doesn't, write to us directly.";
+      }
+    });
+  });
+</script>

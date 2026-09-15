@@ -1,136 +1,52 @@
 ---
 import { site } from "@content/site";
-import MaggieFace from "./MaggieFace.astro";
+
+const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer" style="background: var(--color-mint); border-top: 3px solid var(--color-ink);">
-  <!-- High-impact CTA with Mascot Badge Sticker -->
-  <div class="footer-cta" style="background: var(--color-yellow); padding: var(--space-xl) 20px; position: relative; z-index: 10;">
-    <div class="footer-cta-inner" style="max-width: 1200px; margin: 0 auto; text-align: center;">
-      
-      <!-- Mascot Badge Sticker (Sophisticated Brand Mark) -->
-      <div class="mascot-badge-sticker">
-        <MaggieFace size={60} variant="icon" />
-      </div>
-
-      <!-- Giant Heading -->
-      <h2 style="font-family: var(--font-display); font-size: clamp(48px, 10vw, 140px); color: var(--color-ink); line-height: 0.85; text-transform: uppercase; margin-bottom: 24px; letter-spacing: -0.02em;">
-        {site.footerCta}
-      </h2>
-      
-      <!-- Script Subheading -->
-      <p style="font-family: var(--font-script); font-size: clamp(24px, 4vw, 40px); color: var(--color-ink); transform: rotate(-3deg); margin-top: 20px; margin-bottom: 48px;">
-        {site.footerSub}
-      </p>
-      
-      <!-- Action Buttons -->
-      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <a class="pill-button primary-cta" href={site.appStoreUrl}>
-          Get Started for Free
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Urban Events home">
+          <span>Urban Events</span>
         </a>
+        <p>
+          One clear place for Pakistani organizers to publish events, sell tickets
+          in PKR, and check guests in.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href={site.appUrl}>Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/faqs">FAQs</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/policies">Policies</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        </ul>
       </div>
     </div>
-  </div>
 
-  <!-- Bottom Legal Row -->
-  <div class="footer-bottom" style="background: var(--color-mint); border-top: 3px solid var(--color-ink); padding: 24px 40px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 11;">
-    <!-- Socials (Left) -->
-    <div class="footer-socials" style="display: flex; gap: 16px;">
-      <a href="#" class="social-circle bg-pink">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-      </a>
-      <a href="#" class="social-circle bg-cyan">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-      </a>
-    </div>
-
-    <!-- Copyright (Center) -->
-    <div class="footer-copyright">
-      © 2026 UrbanEvents
-    </div>
-
-    <!-- Policies & FAQs (Right) -->
-    <div style="display: flex; gap: 12px;">
-      <a href="/faqs" class="pill-button bg-white">FAQS</a>
-      <a href="/policies" class="pill-button bg-peach">POLICIES</a>
+    <div class="footer-bottom">
+      <span>© {year} UrbanEvents</span>
+      <span>Ticketing for Pakistan</span>
     </div>
   </div>
 </footer>
-
-<style>
-  .mascot-badge-sticker {
-    width: 100px;
-    height: 100px;
-    background: var(--color-mint);
-    border: 3px solid var(--color-ink);
-    border-radius: 24px;
-    box-shadow: 6px 6px 0 var(--color-ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 32px;
-    transform: rotate(-3deg);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .mascot-badge-sticker:hover {
-    transform: rotate(2deg) scale(1.05);
-    box-shadow: 4px 4px 0 var(--color-ink);
-  }
-
-  .primary-cta {
-    background: var(--color-ink);
-    color: var(--color-white);
-    border: 3px solid var(--color-ink);
-    box-shadow: 6px 6px 0 var(--color-ink);
-    padding: 18px 48px;
-    font-size: 22px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .primary-cta:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 3px 3px 0 var(--color-ink);
-  }
-
-  .social-circle {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: 2px solid var(--color-ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 3px 3px 0 var(--color-ink);
-    color: var(--color-ink);
-    transition: transform 0.2s;
-  }
-
-  .social-circle:hover {
-    transform: scale(1.1) rotate(5deg);
-  }
-
-  .bg-pink { background-color: var(--color-pink); }
-  .bg-cyan { background-color: var(--color-cyan); }
-  .bg-white { background-color: var(--color-white); color: var(--color-ink); border: 2px solid var(--color-ink); box-shadow: 3px 3px 0 var(--color-ink); padding: 12px 32px; font-size: 16px; }
-  .bg-peach { background-color: var(--color-peach); color: var(--color-ink); border: 2px solid var(--color-ink); box-shadow: 3px 3px 0 var(--color-ink); padding: 12px 32px; font-size: 16px; }
-
-  .footer-copyright {
-    font-family: var(--font-script);
-    font-size: 28px;
-    color: var(--color-ink);
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .footer-bottom {
-      flex-direction: column;
-      gap: 32px;
-      padding: 40px 20px;
-    }
-    .mascot-badge-sticker {
-      width: 80px;
-      height: 80px;
-    }
-  }
-</style>

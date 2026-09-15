@@ -1,85 +1,84 @@
 ---
 import { site } from "@content/site";
-import MaggieFace from "./MaggieFace.astro";
+
+const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const links = site.nav.filter((item) => !item.mobileOnly);
 ---
 
 <header class="site-header">
-  <div class="container-inner">
-    <!-- LEFT NAV -->
-    <nav class="nav-left" aria-label="Primary navigation (left)">
-      {site.nav.slice(0, 2).map((item) => {
-        let bgClass = "";
-        if (item.label === "FEATURES") bgClass = "bg-cyan";
-        if (item.label === "ABOUT") bgClass = "bg-peach";
-        return <a class={`nav-link ${bgClass}`} href={item.href}>{item.label}</a>;
-      })}
-    </nav>
-
-    <!-- CENTER BRAND -->
-    <a class="brand-mark" href="/" aria-label="Maggie home">
-      <div class="mascot-badge">
-        <MaggieFace size={32} variant="icon" fg="var(--color-ink)" />
-      </div>
+  <div class="header-shell">
+    <a class="brand" href="/" aria-label="Urban Events home">
+      <span>Urban Events</span>
     </a>
 
-    <!-- RIGHT NAV -->
-    <nav class="nav-right" aria-label="Primary navigation (right)">
-      {site.nav.slice(2).map((item) => {
-        let bgClass = "";
-        if (item.label === "PRICING") bgClass = "bg-pink";
-        if (item.label === "CONTACT") bgClass = "bg-mint";
-        return <a class={`nav-link ${bgClass}`} href={item.href}>{item.label}</a>;
-      })}
-    </nav>
-
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
-      <span class="menu-bar"></span>
-      <span class="menu-bar"></span>
-    </button>
-
-    <nav id="mobile-nav" class="mobile-nav" data-nav aria-label="Mobile navigation">
-      {site.nav.map((item) => (
-        <a class="nav-link" href={item.href}>{item.label}</a>
+    <nav class="header-nav" aria-label="Primary">
+      {links.map((item) => (
+        <a
+          href={item.href}
+          aria-current={current === item.href ? "page" : undefined}
+        >
+          {item.label}
+        </a>
       ))}
-      <a class="button button-primary" href={site.appStoreUrl}>Go to App</a>
     </nav>
+
+    <div class="header-actions">
+      <a class="header-login" href={site.appUrl}>Log in</a>
+      <a class="button button-brand header-cta" href={site.appUrl + site.registerPath}>
+        Create event
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle aria-label="Menu">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
   </div>
+
+  <nav id="mobile-nav" class="mobile-nav" data-nav aria-label="Mobile navigation">
+    {site.nav.map((item) => (
+      <a href={item.href} aria-current={current === item.href ? "page" : undefined}>{item.label}</a>
+    ))}
+    <a href={site.appUrl}>Log in</a>
+    <a class="button button-brand button-medium" href={site.appUrl + site.registerPath}>Create event</a>
+  </nav>
 </header>
 
 <script is:inline>
-  const menuButton = document.querySelector("[data-menu-toggle]");
-  const nav = document.querySelector("[data-nav]");
+  (function () {
+    const menuButton = document.querySelector("[data-menu-toggle]");
+    const nav = document.querySelector("[data-nav]");
+    if (!menuButton || !nav) return;
 
-  menuButton?.addEventListener("click", () => {
-    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-    menuButton.setAttribute("aria-expanded", String(!isOpen));
-    nav?.toggleAttribute("data-open", !isOpen);
-    menuButton.classList.toggle("is-open", !isOpen);
-  });
+    const setOpen = (open) => {
+      menuButton.setAttribute("aria-expanded", String(open));
+      nav.toggleAttribute("data-open", open);
+      menuButton.classList.toggle("is-open", open);
+    };
+
+    const isOpen = () => menuButton.getAttribute("aria-expanded") === "true";
+
+    menuButton.addEventListener("click", () => setOpen(!isOpen()));
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen()) {
+        setOpen(false);
+        menuButton.focus();
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (isOpen() && !nav.contains(e.target) && !menuButton.contains(e.target)) {
+        setOpen(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 860 && isOpen()) setOpen(false);
+    });
+  })();
 </script>
-
-<style>
-  .brand-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-  }
-  .mascot-badge {
-    background-color: var(--color-mint);
-    border: 2px solid var(--color-ink);
-    border-radius: 12px;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 2px 2px 0 var(--color-ink);
-  }
-  .brand-mark:hover .mascot-badge {
-    transform: scale(1.1) rotate(5deg);
-  }
-  .nav-link.bg-pink { background: var(--color-pink); }
-  .nav-link.bg-peach { background: var(--color-pink); } /* Image 1 shows pink for About too */
-  .nav-link.bg-mint { background: var(--color-mint); }
-  .nav-link.bg-cyan { background: var(--color-cyan); }
-</style>

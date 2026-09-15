@@ -1,166 +1,102 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import MomentsCarousel from "@components/MomentsCarousel.astro";
 import { site } from "@content/site";
 import { home } from "@content/home";
+
+const capabilities = home.capabilities;
 ---
 
-<Layout title={site.title} description={site.description} canonical="/">
-
-  <!-- ===== HERO ===== -->
-  <MomentsCarousel />
-
-  <!-- ===== MARQUEE (yellow) ===== -->
-  <section class="marquee-section" style="padding-top: var(--space-huge); padding-bottom: var(--space-huge); border-bottom: 3px solid var(--color-ink); display: flex; flex-direction: column; justify-content: center; min-height: 40vh;">
-    <div class="marquee-inner">
-      <p class="type-large-title-120" data-reveal>{home.marquee}</p>
-      <p class="marquee-tag" data-reveal>
-        <span class="type-heading">{home.marqueeTag}</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES (cream) ===== -->
-  <section class="section-features" style="border-bottom: 3px solid var(--color-ink);">
-    <div class="features-inner" style="max-width: 800px; margin: 0 auto; text-align: center; padding: var(--space-huge) 0;">
-      <h2 class="type-h3" data-reveal style="margin-bottom: var(--space-sm);">{home.features.heading}</h2>
-      <div data-reveal>
-        <h3 class="type-h2" style="margin-bottom: var(--space-md);">{home.features.main}</h3>
-        <p class="type-body" style="font-size: 24px; color: var(--ink-soft); line-height: 1.6;">
-          {home.features.todoItems.join(', ')}
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MISSION (cyan) ===== -->
-  <section class="section-mission" style="padding-top: var(--space-huge); padding-bottom: var(--space-huge); border-bottom: 3px solid var(--color-ink);">
-    <div class="mission-inner">
-      <h2 class="type-large-title-100" data-reveal>{home.mission.heading}</h2>
-      <p class="type-heading" data-reveal style="color: var(--ink); font-size: 18px; max-width: 600px; margin-top: var(--space-sm);">{home.mission.sub}</p>
-    </div>
-  </section>
-
-  <!-- ===== FEATURE GRID (cream) ===== -->
-  <section class="section-feature-grid" style="background: var(--cream); padding: var(--space-huge) 0; border-bottom: 3px solid var(--color-ink);">
-    <div class="container-inner" style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-md);">
-      <div class="sticker-pill bg-pink sticker"><span class="type-h4">Tickets</span></div>
-      <div class="sticker-pill bg-lavender sticker"><span class="type-h4">Events</span></div>
-      <div class="sticker-pill bg-mint sticker"><span class="type-h4">Analytics</span></div>
-      <div class="sticker-pill bg-peach sticker"><span class="type-h4">Workshops</span></div>
-      <div class="sticker-pill bg-yellow sticker"><span class="type-h4">Societies</span></div>
-    </div>
-  </section>
-
-  <!-- ===== ORIGIN (cream overlap card on peach bg) ===== -->
-  <div class="section-origin-bg" style="background: var(--peach); padding-bottom: var(--space-huge);">
-    <section class="section-origin" style="padding-top: var(--space-huge); padding-bottom: var(--space-huge);">
-      <div class="origin-inner">
-        <p class="type-heading" data-reveal>{home.origin.intro}</p>
-        <h2 class="type-large-title" data-reveal>{home.origin.headline}</h2>
-        <div data-reveal style="background-color: var(--color-white); border: 3px solid var(--color-ink); border-radius: var(--radius-lg); padding: var(--space-md); box-shadow: var(--shadow-sm); max-width: 600px; transform: rotate(-1deg);">
-          <p class="type-body" style="font-size: clamp(20px,2.5vw,26px); color: var(--ink); font-weight: 500; line-height: 1.5;">{home.origin.body}</p>
-        </div>
-        <a class="pill-button" href={home.origin.ctaHref} id="origin-about-cta" data-reveal
-          style="background: var(--color-mint); color: var(--ink); margin-top: var(--space-sm);">
-          {home.origin.ctaLabel}
+<Layout minimal title={site.title} description={site.description} canonical="/">
+  <header class="minimal-header">
+    <div class="header-shell">
+      <a class="mini-brand" href="/" aria-label="Urban Events home">
+        <span>Urbanevents</span>
+      </a>
+      <nav class="header-actions" aria-label="Account">
+        <a class="header-login" href={site.appUrl}>Log in</a>
+        <a class="button button-brand header-cta" href={site.appUrl + site.registerPath}>
+          Create event
         </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section class="single-hero" aria-labelledby="hero-title">
+      <div class="hero-stage">
+        <div class="hero-center">
+          <p class="hero-kicker rise" style="animation-delay:0.1s">Ticketing for Pakistan</p>
+          <h1 id="hero-title">
+            <span class="rise" style="animation-delay:0.22s">Every great event</span>
+            <span class="rise" style="animation-delay:0.34s"><em>starts here.</em></span>
+          </h1>
+          <p class="hero-copy rise" style="animation-delay:0.5s">
+            Publish a page, sell tickets in PKR, and scan guests in — one focused platform.
+          </p>
+          <div class="hero-actions rise" style="animation-delay:0.62s">
+            <a class="button button-brand button-large" href={site.appUrl + site.registerPath}>
+              Create your event
+            </a>
+            <a class="button button-ghost button-large" href={home.hero.secondaryCtaHref}>
+              {home.hero.secondaryCta}
+            </a>
+          </div>
+          <p class="hero-trust rise" style="animation-delay:0.72s">
+            <span>Free for free events</span>
+            <span>No monthly fees</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="workflow-rail" aria-label="How Urban Events works">
+        {home.workflow.map((item) => (
+          <article>
+            <span class="rail-step" aria-hidden="true">{item.step}</span>
+            <div><strong>{item.title}</strong><small>{item.sub}</small></div>
+          </article>
+        ))}
       </div>
     </section>
-  </div>
 
+    <!-- ===== CAPABILITIES ===== -->
+    <section class="home-section" id="capabilities" aria-labelledby="cap-title">
+      <div class="home-container">
+        <div class="home-head" data-reveal>
+          <p class="home-kicker"><span class="kicker-rule"></span>Capabilities</p>
+          <h2 id="cap-title">One platform, every job done.</h2>
+        </div>
 
+        <div class="cap-grid">
+          {capabilities.map((cap, i) => (
+            <article class="cap" data-reveal>
+              <div class="cap-top">
+                <span class="cap-num" aria-hidden="true">{"0" + (i + 1)}</span>
+                <h3>{cap.title}</h3>
+                <p class="cap-desc">{cap.desc}</p>
+              </div>
+              <ul class="cap-points">
+                {cap.points.map((point) => <li>{point}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CLOSING CTA ===== -->
+    <section class="home-section" aria-label="Get started">
+      <div class="home-container">
+        <div class="home-cta" data-reveal>
+          <h2>Ready when you are.</h2>
+          <div class="hero-actions">
+            <a class="button button-brand button-large" href={site.appUrl + site.registerPath}>
+              Create your event
+            </a>
+          </div>
+          <p class="home-cta-note">Free for free events. Set up in minutes.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
-
-<style>
-  /* ---- Feature card face decoration ---- */
-  .feature-main-card {
-    position: relative;
-  }
-
-  /* ---- Floating face stickers in mission ---- */
-  .sticker-pill {
-    padding: 12px 24px;
-    border: 3px solid var(--color-ink);
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow-sm);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .bg-pink { background-color: var(--color-pink); }
-  .bg-lavender { background-color: var(--color-lavender); }
-  .bg-mint { background-color: var(--color-mint); }
-  .bg-peach { background-color: var(--color-peach); }
-  .bg-yellow { background-color: var(--color-yellow); }
-
-  /* ---- Origin section face ---- */
-  .section-origin {
-    position: relative;
-  }
-
-  /* ---- Final CTA giant background face ---- */
-  .section-final-cta {
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* ---- Gentle floating animation ---- */
-  @keyframes gentle-float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(3deg); }
-  }
-
-  /* Phone mockups */
-  .phones {
-    position: relative;
-    height: 380px;
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-
-  .phone {
-    width: 190px;
-    height: 370px;
-    border-radius: var(--radius-xl);
-    border: 3px solid var(--ink);
-    box-shadow: var(--shadow);
-    position: absolute;
-  }
-
-  .phone-1 {
-    --rot: rotate(-8deg) translateX(-180px);
-    transform: var(--rot);
-    animation: phone-float 5s ease-in-out infinite 0.5s;
-  }
-
-  .phone-2 {
-    z-index: 2;
-    animation: phone-float 4s ease-in-out infinite;
-  }
-
-  .phone-3 {
-    --rot: rotate(8deg) translateX(180px);
-    transform: var(--rot);
-    animation: phone-float 6s ease-in-out infinite 1s;
-  }
-
-  @keyframes phone-float {
-    0%, 100% { transform: var(--rot, translateY(0)); }
-    50% { transform: var(--rot, translateY(0)) translateY(-12px); }
-  }
-
-  @media (max-width: 600px) {
-    .phone { width: 130px; height: 260px; }
-    .phones { height: 300px; }
-    .phone-1 { --rot: rotate(-8deg) translateX(-100px); }
-    .phone-3 { --rot: rotate(8deg) translateX(100px); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .phone-1, .phone-2, .phone-3 { animation: none; }
-  }
-</style>

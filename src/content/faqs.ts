@@ -36,7 +36,6 @@ export const faqs = [
 export const faqPage = {
   title: "UrbanEvents FAQs",
   description: "Frequently asked questions about the UrbanEvents platform.",
-  theme: "theme-yellow",
-  eyebrow: "FAQS",
+  eyebrow: "FAQs",
   heading: "Got questions? We've got answers."
 };

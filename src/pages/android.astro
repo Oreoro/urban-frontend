@@ -1,19 +1,24 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { pages } from "@content/pages";
+import { site } from "@content/site";
 
 const page = pages.android;
 ---
 
-<Layout title={page.title} description={page.description} canonical="/android" bodyClass={page.theme}>
+<Layout title={page.title} description={page.description} canonical="/android">
   <section class="subpage-section">
-    <div class="subpage-inner" data-reveal>
-      <p class="subpage-eyebrow">{page.eyebrow}</p>
-      <h1 class="subpage-heading">{page.heading}</h1>
-      
-      <div class="subpage-body">
+    <div class="container">
+      <p class="kicker" data-reveal>{page.eyebrow}</p>
+      <h1 data-reveal style="font-size: clamp(36px,4.6vw,64px); letter-spacing:-0.045em; line-height:1.02;">
+        {page.heading}
+      </h1>
+      <div class="subpage-body" style="margin-top: 32px;" data-reveal>
         {page.body.map((paragraph) => <p>{paragraph}</p>)}
       </div>
+      <p style="margin-top: 32px;" data-reveal>
+        <a class="button button-brand button-large" href={site.appUrl}>Open the dashboard</a>
+      </p>
     </div>
   </section>
 </Layout>

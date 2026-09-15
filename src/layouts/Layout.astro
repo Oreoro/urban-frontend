@@ -1,7 +1,6 @@
 ---
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Cursor from "@components/Cursor.astro";
 import { site } from "@content/site";
 import "../styles/global.css";
 
@@ -11,6 +10,7 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   bodyClass?: string;
+  minimal?: boolean;
 }
 
 const {
@@ -18,7 +18,8 @@ const {
   description = site.description,
   canonical = Astro.url.pathname,
   ogImage = site.ogImage,
-  bodyClass = ""
+  bodyClass = "",
+  minimal = false
 } = Astro.props;
 
 const fullTitle = title === site.title ? title : `${title} | ${site.name}`;
@@ -31,11 +32,14 @@ const canonicalUrl = new URL(canonical, site.url).toString();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+    <meta name="theme-color" content="#fafaf8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500&family=Homemade+Apple&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="canonical" href={canonicalUrl} />
     <meta name="robots" content="max-image-preview:large" />
     <meta property="og:type" content="website" />
@@ -48,15 +52,15 @@ const canonicalUrl = new URL(canonical, site.url).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
   </head>
-  <body class={bodyClass}>
-    <Cursor />
-    <Header />
-    <main>
+  <body class={[bodyClass, minimal ? "single-view" : ""].filter(Boolean).join(" ")}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {!minimal && <Header />}
+    <main id="main">
       <slot />
     </main>
-    <Footer />
+    {!minimal && <Footer />}
     <script>
-      import "../scripts/maggie-animations";
+      import "../scripts/reveal";
     </script>
   </body>
 </html>

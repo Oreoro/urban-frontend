@@ -9,9 +9,11 @@ const { eyebrow, heading, body = [] } = Astro.props;
 ---
 
 <section class="page-panel">
-  <p class="section-kicker">{eyebrow}</p>
-  <h1>{heading}</h1>
-  <div class="copy-stack">
-    {body.map((paragraph) => <p>{paragraph}</p>)}
+  <div class="container">
+    <p class="kicker" data-reveal>{eyebrow}</p>
+    <h1 data-reveal>{heading}</h1>
+    <div class="copy-stack" data-reveal>
+      {body.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
   </div>
 </section>
