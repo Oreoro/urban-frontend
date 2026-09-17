@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <meta
       name="description"
       content="Urban Events gives Pakistani organizers one clear place to publish events, sell tickets in PKR, and check guests in."
     />
-    <meta name="theme-color" content="#fafaf8" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://urbanevents.pk/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
@@ -17,6 +20,7 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="application-name" content="Urban Events" />
     <meta name="apple-mobile-web-app-title" content="Urban Events" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <title>Urban Events — Ticketing for Pakistan</title>
 
@@ -29,20 +33,13 @@
       content="Publish your event, sell tickets in PKR, and run QR entry from one focused platform."
     />
     <meta property="og:url" content="https://urbanevents.pk/" />
-    <meta property="og:image" content="https://urbanevents.pk/og-image.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Urban Events — Ticketing for Pakistan" />
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Urban Events — Ticketing for Pakistan" />
     <meta
       name="twitter:description"
       content="Publish your event, sell tickets in PKR, and run QR entry from one focused platform."
     />
-    <meta name="twitter:image" content="https://urbanevents.pk/og-image.png" />
-    <meta name="twitter:image:alt" content="Urban Events — Ticketing for Pakistan" />
 
     <script type="application/ld+json">
       {
@@ -82,7 +79,7 @@
       }
     </script>
 
-    <link rel="stylesheet" href="/assets/landing-b0404bd7.css?v=ue-refine-20260802" />
+    <link rel="stylesheet" href="/landing.css?v=20260917" />
   </head>
   <body class="single-view">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -107,14 +104,20 @@
     <main class="single-home" id="main">
       <section class="single-hero" aria-labelledby="hero-title">
         <div class="hero-stage">
+          <div class="hero-grid" aria-hidden="true"></div>
+          <div class="hero-glow" aria-hidden="true"></div>
+
           <div class="hero-center">
-            <p class="hero-kicker">Ticketing for Pakistan</p>
-            <h1 id="hero-title">Every great event<br /><em>starts here.</em></h1>
-            <p class="hero-copy">
+            <p class="hero-kicker rise" style="--d: 80ms">Ticketing for Pakistan</p>
+            <h1 id="hero-title">
+              <span class="rise" style="--d: 200ms">Every great event</span><br />
+              <em class="rise" style="--d: 320ms">starts here.</em>
+            </h1>
+            <p class="hero-copy rise" style="--d: 460ms">
               Publish a polished page, sell tickets in PKR, and welcome every guest through the
               door.
             </p>
-            <div class="hero-actions">
+            <div class="hero-actions rise" style="--d: 580ms">
               <a
                 class="button button-brand button-large"
                 href="https://app.urbanevents.pk/auth/register"
@@ -122,24 +125,60 @@
                 Create your event
               </a>
             </div>
-            <p class="hero-trust">
+            <p class="hero-trust rise" style="--d: 680ms">
               <span>Free forever</span>
             </p>
           </div>
         </div>
 
         <div class="workflow-rail" id="workflow" aria-label="How Urban Events works">
-          <article>
+          <article class="rail-item">
+            <span class="rail-step" aria-hidden="true">01</span>
             <div><strong>Publish</strong><small>Share one clear link</small></div>
           </article>
-          <article>
+          <article class="rail-item">
+            <span class="rail-step" aria-hidden="true">02</span>
             <div><strong>Sell</strong><small>Local PKR checkout</small></div>
           </article>
-          <article>
+          <article class="rail-item">
+            <span class="rail-step" aria-hidden="true">03</span>
             <div><strong>Check in</strong><small>Scan guests at the door</small></div>
           </article>
         </div>
       </section>
     </main>
+
+    <script>
+      (function () {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var stage = document.querySelector(".hero-stage");
+        if (!stage || reduce) return;
+
+        var frame = null;
+        var tx = 0;
+        var ty = 0;
+
+        function apply() {
+          frame = null;
+          stage.style.setProperty("--px", (tx * 18).toFixed(2) + "px");
+          stage.style.setProperty("--py", (ty * 18).toFixed(2) + "px");
+          stage.style.setProperty("--mx", (50 + tx * 26).toFixed(2) + "%");
+          stage.style.setProperty("--my", (50 + ty * 26).toFixed(2) + "%");
+        }
+
+        stage.addEventListener("pointermove", function (event) {
+          var rect = stage.getBoundingClientRect();
+          tx = (event.clientX - rect.left) / rect.width - 0.5;
+          ty = (event.clientY - rect.top) / rect.height - 0.5;
+          if (!frame) frame = requestAnimationFrame(apply);
+        });
+
+        stage.addEventListener("pointerleave", function () {
+          tx = 0;
+          ty = 0;
+          if (!frame) frame = requestAnimationFrame(apply);
+        });
+      })();
+    </script>
   </body>
 </html>
