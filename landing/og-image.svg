@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Urban Events — Ticketing for Pakistan">
+  <defs>
+    <mask id="notch">
+      <rect width="1200" height="630" fill="#fff"/>
+      <circle cx="0" cy="546" r="30" fill="#000"/>
+      <circle cx="1200" cy="546" r="30" fill="#000"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#notch)">
+    <rect width="1200" height="630" fill="#fafaf8"/>
+    <circle cx="1030" cy="110" r="330" fill="#006ac4" opacity="0.055"/>
+
+    <g transform="translate(80 66)">
+      <rect width="54" height="54" rx="13" fill="#006ac4"/>
+      <g transform="translate(27 27) scale(0.78) translate(-32 -32)">
+        <path d="M18 21h28a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V25a4 4 0 0 1 4-4Z" fill="#fafaf8"/>
+        <circle cx="14" cy="32" r="4.4" fill="#006ac4"/>
+        <circle cx="50" cy="32" r="4.4" fill="#006ac4"/>
+        <path d="M31.5 24.5v15" stroke="#006ac4" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="0.1 5.2"/>
+      </g>
+    </g>
+    <text x="152" y="103" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="-0.8" fill="#171717">Urban Events</text>
+
+    <text x="78" y="312" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="94" font-weight="700" letter-spacing="-3.4" fill="#171717">Ticketing for</text>
+    <text x="78" y="410" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="98" letter-spacing="-1.5" fill="#006ac4">Pakistan.</text>
+
+    <text x="80" y="474" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" fill="#5f6774">Publish an event page, sell tickets in PKR, and scan guests in.</text>
+
+    <path d="M80 546H1120" stroke="#d8d9d5" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 16"/>
+
+    <text x="80" y="598" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="-0.3" fill="#171717">urbanevents.pk</text>
+    <text x="1120" y="598" text-anchor="end" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" fill="#69717f">Free forever</text>
+  </g>
+</svg>
