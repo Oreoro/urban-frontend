@@ -34,8 +34,8 @@ export const faqs = [
 ];
 
 export const faqPage = {
-  title: "UrbanEvents FAQs",
-  description: "Frequently asked questions about the UrbanEvents platform.",
+  title: "FAQs",
+  description: "Answers on fees, JazzCash and Easypaisa payments, QR check-in, payouts and customizing your event page.",
   eyebrow: "FAQs",
   heading: "Got questions? We've got answers."
 };

@@ -2,9 +2,18 @@
 import FAQList from "@components/FAQList.astro";
 import Layout from "@layouts/Layout.astro";
 import { faqPage, faqs } from "@content/faqs";
+
+const structuredData = {
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer }
+  }))
+};
 ---
 
-<Layout title={faqPage.title} description={faqPage.description} canonical="/faqs">
+<Layout title={faqPage.title} description={faqPage.description} canonical="/faqs" structuredData={structuredData}>
   <section class="subpage-section">
     <div class="container">
       <p class="kicker" data-reveal>{faqPage.eyebrow}</p>

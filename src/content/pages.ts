@@ -1,7 +1,7 @@
 export const pages = {
   about: {
-    title: "About UrbanEvents",
-    description: "The story behind the event management platform built for Pakistan.",
+    title: "About",
+    description: "Why we built Urban Events: a ticketing platform for student societies, MUNs and workshop hosts in Pakistan.",
     eyebrow: "About",
     heading: "Built for the creators, powered by tech, simplified for you.",
     subheading: "Why is it so hard to manage small events without a mess of spreadsheets?",
@@ -21,8 +21,8 @@ export const pages = {
     ctaHref: "/contact"
   },
   features: {
-    title: "Features | UrbanEvents",
-    description: "Everything you need to launch ticketing in minutes.",
+    title: "Features",
+    description: "Event pages, PKR checkout, QR check-in and live reports — everything included from your first ticket.",
     eyebrow: "Features",
     heading: "Everything you need to launch ticketing in minutes.",
     subheading: "Pro tools for student organizers, without the pro price tag.",
@@ -46,8 +46,8 @@ export const pages = {
     ]
   },
   pricing: {
-    title: "Pricing | UrbanEvents",
-    description: "Simple, transparent pricing for any event size.",
+    title: "Pricing",
+    description: "Free for free events. 5% + Rs 50 per paid ticket. No monthly subscription and no contract.",
     eyebrow: "Pricing",
     heading: "Simple pricing for every event.",
     subheading: "No hidden fees. Just powerful tools.",
@@ -88,8 +88,8 @@ export const pages = {
     ctaHref: "https://app.urbanevents.pk"
   },
   android: {
-    title: "Coming Soon",
-    description: "The UrbanEvents mobile app for organizers.",
+    title: "Organizer App",
+    description: "The Urban Events mobile app for real-time check-ins and analytics — coming soon.",
     eyebrow: "Organizer app",
     heading: "Management on the go.",
     body: [
@@ -98,8 +98,8 @@ export const pages = {
     ]
   },
   contact: {
-    title: "Contact UrbanEvents",
-    description: "Get in touch with the UrbanEvents team.",
+    title: "Contact",
+    description: "Questions about ticketing, payments or check-in? Email the Urban Events team at hello@urbanevents.pk.",
     eyebrow: "Contact",
     heading: "Get in touch.",
     emailIntro: "Via email",
@@ -109,8 +109,8 @@ export const pages = {
     form: "contact"
   },
   policies: {
-    title: "UrbanEvents Policies",
-    description: "Terms, privacy, and legal information for UrbanEvents.",
+    title: "Policies",
+    description: "Terms, privacy and legal information for the Urban Events ticketing platform.",
     eyebrow: "Policies",
     heading: "Terms, privacy, and legal information.",
     body: [

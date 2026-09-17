@@ -1,10 +1,10 @@
 export const site = {
-  name: "UrbanEvents",
+  name: "Urban Events",
   title: "Urban Events — Ticketing for Pakistan",
   description:
-    "Urban Events gives Pakistani organizers one clear place to publish events, sell tickets in PKR, and check guests in.",
+    "Publish an event page, sell tickets in PKR, and check guests in from any phone. Built for student societies, MUNs, workshops and meetups across Pakistan.",
   url: "https://urbanevents.pk",
-  ogImage: "https://urbanevents.pk/og-image.png",
+  locale: "en_PK",
   email: "hello@urbanevents.pk",
   appUrl: "https://app.urbanevents.pk",
   registerPath: "/auth/register",

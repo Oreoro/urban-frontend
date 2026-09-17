@@ -8,22 +8,53 @@ interface Props {
   title?: string;
   description?: string;
   canonical?: string;
-  ogImage?: string;
+  ogType?: "website" | "article";
   bodyClass?: string;
   minimal?: boolean;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
-  title = site.title,
+  title,
   description = site.description,
   canonical = Astro.url.pathname,
-  ogImage = site.ogImage,
+  ogType = "website",
   bodyClass = "",
-  minimal = false
+  minimal = false,
+  structuredData
 } = Astro.props;
 
-const fullTitle = title === site.title ? title : `${title} | ${site.name}`;
+const fullTitle = !title || title === site.title ? site.title : `${title} | ${site.name}`;
 const canonicalUrl = new URL(canonical, site.url).toString();
+
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": `${site.url}/#organization`,
+  name: site.name,
+  url: site.url,
+  logo: `${site.url}/icon-512.png`,
+  email: site.email
+};
+
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": `${site.url}/#website`,
+  name: site.name,
+  url: site.url,
+  inLanguage: "en-PK",
+  publisher: { "@id": `${site.url}/#organization` }
+};
+
+const pageSchemas = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [organizationSchema, websiteSchema, ...pageSchemas]
+};
 ---
 
 <!doctype html>
@@ -34,6 +65,11 @@ const canonicalUrl = new URL(canonical, site.url).toString();
     <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
     <meta name="theme-color" content="#fafaf8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="application-name" content={site.name} />
+    <meta name="apple-mobile-web-app-title" content={site.name} />
     <script is:inline>document.documentElement.classList.add("js");</script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
@@ -41,24 +77,25 @@ const canonicalUrl = new URL(canonical, site.url).toString();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="canonical" href={canonicalUrl} />
-    <meta name="robots" content="max-image-preview:large" />
-    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class={[bodyClass, minimal ? "single-view" : ""].filter(Boolean).join(" ")}>
     <a class="skip-link" href="#main">Skip to content</a>
-    {!minimal && <Header />}
+    {minimal ? <slot name="header" /> : <Header />}
     <main id="main">
       <slot />
     </main>
-    {!minimal && <Footer />}
+    <Footer />
     <script>
       import "../scripts/reveal";
     </script>
