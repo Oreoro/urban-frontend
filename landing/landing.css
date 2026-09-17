@@ -1,23 +1,24 @@
 /* Urban Events — landing
-   Structure mirrors edra.ai: video-style hero animation, logo strip + scrolling
-   marquee, tabbed platform section built around phone mockups, mid-page CTA,
-   customer-story cards, oversized footer wordmark, generous vertical spacing.
-   Palette stays on the app theme: white surfaces, Notion ink (#37352F), warm-gray
-   hairlines, small radii, restrained shadows. */
+   Layout mirrors edra.ai: text-only hero with generous spacing, logo strip +
+   scrolling marquee, tabbed platform section built around phone mockups,
+   mid-page CTA, use-case cards, oversized footer wordmark.
+   Palette mirrors edra.ai: beige page, cream cards, olive ink/buttons,
+   soft-yellow accent, hairline borders, small radii, restrained shadows. */
 
 :root {
-  --canvas: #ffffff;
-  --canvas-soft: #f7f7f5;
-  --surface: #ffffff;
-  --ink: #37352f;
-  --ink-soft: #5f5e5b;
-  --muted: #91918e;
-  --quiet: #787774;
-  --line: #e9e9e7;
-  --line-strong: #dddbd8;
-  --green: #448361;
-  --accent: #37352f;
-  --accent-hover: #2f2e2b;
+  --canvas: #f2f3eb;
+  --canvas-soft: #eaebe4;
+  --surface: #fffff9;
+  --ink: #363726;
+  --ink-soft: #494939;
+  --muted: #85867a;
+  --quiet: #abaca2;
+  --line: #e1e2da;
+  --line-strong: #d3d4c8;
+  --highlight: #fff781;
+  --green: #5f7a4a;
+  --accent: #363726;
+  --accent-hover: #2b2c1e;
 
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, monospace;
@@ -173,7 +174,7 @@ svg {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(242, 243, 235, 0.86);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: box-shadow 180ms ease;
@@ -526,7 +527,7 @@ svg {
 .tab[aria-selected="true"] {
   background: var(--surface);
   color: var(--ink);
-  box-shadow: inset 0 -2px 0 var(--ink);
+  box-shadow: inset 0 -2px 0 var(--highlight);
 }
 
 .tab-num {
@@ -545,8 +546,8 @@ svg {
 
 .tab[aria-selected="true"] .tab-num {
   border-color: var(--ink);
-  background: var(--ink);
-  color: #fff;
+  background: var(--highlight);
+  color: var(--ink);
 }
 
 .tab-panels {
@@ -853,7 +854,7 @@ svg {
   padding: clamp(36px, 6vw, 72px);
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  background: var(--canvas-soft);
+  background: var(--surface);
 }
 
 .mid-copy h2 {
