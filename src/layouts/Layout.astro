@@ -95,7 +95,7 @@ const jsonLd = {
     <main id="main">
       <slot />
     </main>
-    <Footer />
+    {!minimal && <Footer />}
     <script>
       import "../scripts/reveal";
     </script>
