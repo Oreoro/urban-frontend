@@ -72,66 +72,105 @@
               "@type": "Offer",
               "price": "0",
               "priceCurrency": "PKR",
-              "description": "Free forever"
+              "description": "Free for free events"
             }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is it really free for free events?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Free events are 100% free — no platform fees, no listing costs, no surprises."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do attendees pay?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "JazzCash, Easypaisa and bank transfer, settled in PKR. Payouts land in your account after the event."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need an app to check people in?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Door staff open a link on any phone — scan a QR or search a name and tap. Nothing to install."
+                }
+              }
+            ]
           }
         ]
       }
     </script>
 
-    <link rel="stylesheet" href="/landing.css?v=20260917" />
+    <link rel="stylesheet" href="/landing.css?v=20260918" />
   </head>
-  <body class="single-view">
+  <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="minimal-header">
+    <header class="site-header">
       <div class="header-shell">
-        <a class="mini-brand" href="/" aria-label="Urban Events home">
-          <span>Urbanevents</span>
+        <a class="brand" href="/" aria-label="Urban Events home">
+          <svg class="brand-mark" width="22" height="22" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#37352f" />
+            <path d="M18 21h28a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V25a4 4 0 0 1 4-4Z" fill="#ffffff" />
+            <circle cx="14" cy="32" r="4.4" fill="#37352f" />
+            <circle cx="50" cy="32" r="4.4" fill="#37352f" />
+            <path d="M31.5 24.5v15" stroke="#37352f" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="0.1 5.2" />
+          </svg>
+          <span>Urban Events</span>
         </a>
-        <nav class="header-actions" aria-label="Account">
+
+        <nav class="header-nav" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQs</a>
+        </nav>
+
+        <div class="header-actions">
           <a class="header-login" href="https://app.urbanevents.pk">Log in</a>
-          <a
-            class="button button-brand header-cta"
-            href="https://app.urbanevents.pk/auth/register"
-          >
+          <a class="button button-brand header-cta" href="https://app.urbanevents.pk/auth/register">
             Create event
           </a>
-        </nav>
+        </div>
       </div>
     </header>
 
-    <main class="single-home" id="main">
-      <section class="single-hero" aria-labelledby="hero-title">
-        <div class="hero-stage">
-          <div class="hero-grid" aria-hidden="true"></div>
-          <div class="hero-glow" aria-hidden="true"></div>
-
-          <div class="hero-center">
-            <p class="hero-kicker rise" style="--d: 80ms">Ticketing for Pakistan</p>
-            <h1 id="hero-title">
-              <span class="rise" style="--d: 200ms">Every great event</span><br />
-              <em class="rise" style="--d: 320ms">starts here.</em>
-            </h1>
-            <p class="hero-copy rise" style="--d: 460ms">
-              Publish a polished page, sell tickets in PKR, and welcome every guest through the
-              door.
-            </p>
-            <div class="hero-actions rise" style="--d: 580ms">
-              <a
-                class="button button-brand button-large"
-                href="https://app.urbanevents.pk/auth/register"
-              >
-                Create your event
-              </a>
-            </div>
-            <p class="hero-trust rise" style="--d: 680ms">
-              <span>Free forever</span>
-            </p>
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <p class="hero-kicker rise" style="--d: 80ms">
+            <span class="dot" aria-hidden="true"></span>Ticketing for Pakistan
+          </p>
+          <h1 id="hero-title">
+            <span class="rise" style="--d: 200ms">Every great event</span><br />
+            <em class="rise" style="--d: 320ms">starts here.</em>
+          </h1>
+          <p class="hero-copy rise" style="--d: 460ms">
+            Publish a polished event page, sell tickets in PKR, and welcome every guest through the
+            door — all from one focused platform.
+          </p>
+          <div class="hero-actions rise" style="--d: 580ms">
+            <a class="button button-brand button-large" href="https://app.urbanevents.pk/auth/register">
+              Create your event
+            </a>
+            <a class="button button-ghost button-large" href="#pricing">See pricing</a>
           </div>
+          <p class="hero-trust rise" style="--d: 680ms">
+            <span>Free for free events</span>
+            <span>No monthly fees</span>
+            <span>PKR checkout</span>
+          </p>
         </div>
 
-        <div class="workflow-rail" id="workflow" aria-label="How Urban Events works">
+        <div class="workflow-rail" aria-label="How Urban Events works">
           <article class="rail-item">
             <span class="rail-step" aria-hidden="true">01</span>
             <div><strong>Publish</strong><small>Share one clear link</small></div>
@@ -146,37 +185,303 @@
           </article>
         </div>
       </section>
+
+      <!-- EVENT TYPES -->
+      <section class="ticker-band" aria-label="Built for">
+        <div class="container">
+          <p class="ticker-label">Built for</p>
+          <ul class="ticker-list">
+            <li>MUNs</li>
+            <li>Concerts</li>
+            <li>Workshops</li>
+            <li>Student societies</li>
+            <li>Meetups</li>
+            <li>Festivals</li>
+            <li>Sports weeks</li>
+            <li>Seminars</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="section" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <p class="kicker"><span class="kicker-rule"></span>What you get</p>
+            <h2 id="features-title">Everything from the first post to the door.</h2>
+            <p class="lede">
+              No tiers to unlock. Every account ships with the full toolkit — from the first ticket
+              to the last guest out the door.
+            </p>
+          </div>
+
+          <div class="cap-grid">
+            <article class="cap" data-reveal>
+              <span class="cap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+              </span>
+              <h3>Publish</h3>
+              <p class="cap-desc">A fast event page with your branding — live before your chai goes cold.</p>
+              <ul class="cap-points">
+                <li>Your logo and colors on the page, checkout and tickets</li>
+                <li>Paid, free or donation tiers with sale windows</li>
+                <li>One link that works in every chat and bio</li>
+              </ul>
+            </article>
+
+            <article class="cap" data-reveal>
+              <span class="cap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2.5a2.5 2.5 0 0 0 0 5V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2.5a2.5 2.5 0 0 0 0-5Z"/><path d="M14 5v14" stroke-dasharray="0.1 4.2"/></svg>
+              </span>
+              <h3>Sell tickets</h3>
+              <p class="cap-desc">Attendees pay the way Pakistan actually pays.</p>
+              <ul class="cap-points">
+                <li>JazzCash, Easypaisa and bank transfer</li>
+                <li>Promo codes, capacities and per-order limits</li>
+                <li>Prices in PKR — no dollar surprises</li>
+              </ul>
+            </article>
+
+            <article class="cap" data-reveal>
+              <span class="cap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M4 12h16"/></svg>
+              </span>
+              <h3>Check in</h3>
+              <p class="cap-desc">The door runs from any phone. No installs, no queues.</p>
+              <ul class="cap-points">
+                <li>Scan QR codes or search a name and tap</li>
+                <li>Live counts synced across every device at the door</li>
+                <li>Offline-friendly — bad venue wifi won't stop you</li>
+              </ul>
+            </article>
+
+            <article class="cap" data-reveal>
+              <span class="cap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.4"/><path d="M7 12h.01M17 12h.01"/></svg>
+              </span>
+              <h3>Get paid</h3>
+              <p class="cap-desc">Money and reports land without the spreadsheet mess.</p>
+              <ul class="cap-points">
+                <li>Automated payouts after your event</li>
+                <li>Live sales, page views and check-in analytics</li>
+                <li>Daily reports and CSV exports for your team</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section" id="how" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <p class="kicker"><span class="kicker-rule"></span>How it works</p>
+            <h2 id="how-title">Set up in minutes. Selling the same day.</h2>
+            <p class="lede">
+              Check-in, reports and payouts are included from the first ticket — nothing to
+              configure later.
+            </p>
+          </div>
+
+          <div class="steps">
+            <article class="step" data-reveal>
+              <span class="step-num" aria-hidden="true">01</span>
+              <h3>Create your event page</h3>
+              <p>Add your details, branding and ticket types. Your page is live before your chai goes cold.</p>
+            </article>
+            <article class="step" data-reveal>
+              <span class="step-num" aria-hidden="true">02</span>
+              <h3>Set tickets and prices</h3>
+              <p>Paid, free or donation tiers with capacity, sale windows and promo codes — in PKR.</p>
+            </article>
+            <article class="step" data-reveal>
+              <span class="step-num" aria-hidden="true">03</span>
+              <h3>Share and check in</h3>
+              <p>Send one link everywhere. Then scan QR codes at the door and watch the numbers move live.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="section" id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <p class="kicker"><span class="kicker-rule"></span>Pricing</p>
+            <h2 id="pricing-title">Keep more of every ticket you sell</h2>
+            <p class="lede">
+              0% platform fee on free events. A small flat fee on paid tickets — no monthly
+              subscription, no contract.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card" data-reveal>
+              <p class="pricing-tier">Free events</p>
+              <p class="pricing-price">Rs 0 <small>forever</small></p>
+              <p class="pricing-desc">Everything you need to host a workshop, meetup or society event.</p>
+              <ul class="pricing-features">
+                <li>Unlimited free tickets</li>
+                <li>Custom event page</li>
+                <li>QR check-in tool</li>
+                <li>Basic analytics</li>
+              </ul>
+              <a class="button button-ghost button-medium" href="https://app.urbanevents.pk/auth/register">Start for free</a>
+            </article>
+
+            <article class="pricing-card is-featured" data-reveal>
+              <p class="pricing-tier">Paid events</p>
+              <p class="pricing-price">5% <small>+ Rs 50 / ticket</small></p>
+              <p class="pricing-desc">For organizers selling tickets, passes or taking registrations.</p>
+              <ul class="pricing-features">
+                <li>Everything in Free</li>
+                <li>JazzCash, Easypaisa &amp; bank transfer</li>
+                <li>Automated payouts</li>
+                <li>Priority support</li>
+              </ul>
+              <a class="button button-brand button-medium" href="https://app.urbanevents.pk/auth/register">Create a paid event</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <p class="kicker"><span class="kicker-rule"></span>FAQs</p>
+            <h2 id="faq-title">The questions we get most.</h2>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item" data-reveal>
+              <summary class="faq-summary">
+                <span>Is it really free for free events?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </span>
+              </summary>
+              <p>Yes — free events are 100% free. No platform fees, no listing costs, no surprises.</p>
+            </details>
+
+            <details class="faq-item" data-reveal>
+              <summary class="faq-summary">
+                <span>How do attendees pay?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </span>
+              </summary>
+              <p>JazzCash, Easypaisa and bank transfer, settled in PKR. Payouts land in your account after the event.</p>
+            </details>
+
+            <details class="faq-item" data-reveal>
+              <summary class="faq-summary">
+                <span>Do I need an app to check people in?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </span>
+              </summary>
+              <p>No. Door staff open a link on any phone — scan a QR or search a name and tap. Nothing to install.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-band" aria-labelledby="cta-title">
+        <div class="container cta-inner">
+          <h2 id="cta-title" data-reveal>Ready to sell out <em>your next event?</em></h2>
+          <div class="hero-actions" data-reveal>
+            <a class="button button-brand button-large" href="https://app.urbanevents.pk/auth/register">Create your event</a>
+            <a class="button button-ghost button-large" href="mailto:hello@urbanevents.pk">Talk to us</a>
+          </div>
+          <p class="cta-note" data-reveal>Start your event for free. Built for small teams with big ideas.</p>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Urban Events home">
+              <svg class="brand-mark" width="22" height="22" viewBox="0 0 64 64" aria-hidden="true">
+                <rect width="64" height="64" rx="14" fill="#37352f" />
+                <path d="M18 21h28a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V25a4 4 0 0 1 4-4Z" fill="#ffffff" />
+                <circle cx="14" cy="32" r="4.4" fill="#37352f" />
+                <circle cx="50" cy="32" r="4.4" fill="#37352f" />
+                <path d="M31.5 24.5v15" stroke="#37352f" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="0.1 5.2" />
+              </svg>
+              <span>Urban Events</span>
+            </a>
+            <p>One clear place for Pakistani organizers to publish events, sell tickets in PKR, and check guests in.</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#faq">FAQs</a></li>
+              <li><a href="https://app.urbanevents.pk">Dashboard</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Get started</h4>
+            <ul>
+              <li><a href="https://app.urbanevents.pk/auth/register">Create an event</a></li>
+              <li><a href="https://app.urbanevents.pk">Log in</a></li>
+              <li><a href="mailto:hello@urbanevents.pk">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span id="year">2026</span> Urban Events</span>
+          <span>Ticketing for Pakistan</span>
+        </div>
+      </div>
+    </footer>
 
     <script>
       (function () {
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        var stage = document.querySelector(".hero-stage");
-        if (!stage || reduce) return;
 
-        var frame = null;
-        var tx = 0;
-        var ty = 0;
+        document.getElementById("year").textContent = new Date().getFullYear();
 
-        function apply() {
-          frame = null;
-          stage.style.setProperty("--px", (tx * 18).toFixed(2) + "px");
-          stage.style.setProperty("--py", (ty * 18).toFixed(2) + "px");
-          stage.style.setProperty("--mx", (50 + tx * 26).toFixed(2) + "%");
-          stage.style.setProperty("--my", (50 + ty * 26).toFixed(2) + "%");
+        var header = document.querySelector(".site-header");
+        if (header) {
+          var onScroll = function () {
+            header.classList.toggle("is-scrolled", window.scrollY > 4);
+          };
+          onScroll();
+          window.addEventListener("scroll", onScroll, { passive: true });
         }
 
-        stage.addEventListener("pointermove", function (event) {
-          var rect = stage.getBoundingClientRect();
-          tx = (event.clientX - rect.left) / rect.width - 0.5;
-          ty = (event.clientY - rect.top) / rect.height - 0.5;
-          if (!frame) frame = requestAnimationFrame(apply);
-        });
+        var reveal = document.querySelectorAll("[data-reveal]");
+        if (reduce || !("IntersectionObserver" in window)) {
+          reveal.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+          return;
+        }
 
-        stage.addEventListener("pointerleave", function () {
-          tx = 0;
-          ty = 0;
-          if (!frame) frame = requestAnimationFrame(apply);
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        reveal.forEach(function (el, index) {
+          el.style.setProperty("--reveal-delay", Math.min(index % 6, 5) * 60 + "ms");
+          observer.observe(el);
         });
       })();
     </script>
