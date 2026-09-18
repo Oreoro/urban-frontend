@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Free for free events. 5% on ticket sales, charged to customers. No monthly subscription and no contract."
+      content="Free for free events. A simple 5% per paid ticket at checkout. No monthly subscription and no contract."
     />
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://urbanevents.pk/pricing" />
@@ -25,7 +25,7 @@
     <meta property="og:title" content="Pricing — Urban Events" />
     <meta
       property="og:description"
-      content="Free for free events. 5% on ticket sales, charged to customers. No monthly subscription and no contract."
+      content="Free for free events. A simple 5% per paid ticket at checkout. No monthly subscription and no contract."
     />
     <meta property="og:url" content="https://urbanevents.pk/pricing" />
     <meta name="twitter:card" content="summary" />
@@ -33,11 +33,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/landing.css?v=20260918e" />
+    <link rel="stylesheet" href="/landing.css?v=20260918g" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -71,15 +71,19 @@
         </div>
       </div>
 
-      <nav id="nav-menu" class="nav-menu" data-menu aria-label="Mobile">
+    </header>
+
+    <nav id="nav-menu" class="nav-menu" data-menu aria-label="Mobile">
         <a href="/features">Features</a>
         <a href="/pricing" class="is-current" aria-current="page">Pricing</a>
         <a href="/faqs">FAQs</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
-        <a href="https://app.urbanevents.pk">Log in</a>
-      </nav>
-    </header>
+        <div class="nav-menu-actions">
+          <a class="nav-menu-login" href="https://app.urbanevents.pk">Log in</a>
+          <a class="pill pill-dark" href="https://app.urbanevents.pk/auth/register">Create event</a>
+        </div>
+    </nav>
 
     <main id="main">
       <section class="page-hero" aria-labelledby="page-title">
@@ -94,7 +98,7 @@
           <div class="tiers">
             <article class="tier" data-reveal>
               <div class="tier-head">
-                <p class="label">Free events</p>
+                <h3>Free events</h3>
                 <div class="tier-price">Rs 0 <small>forever</small></div>
                 <p>Everything you need to host a free event, workshop or meetup.</p>
               </div>
@@ -109,8 +113,8 @@
 
             <article class="tier tier-featured" data-reveal>
               <div class="tier-head">
-                <p class="label">Paid events</p>
-                <div class="tier-price">5% <small>charged to customers</small></div>
+                <h3>Paid events</h3>
+                <div class="tier-price">5% <small>per paid ticket</small></div>
                 <p>For organizers selling tickets, passes or taking registrations.</p>
               </div>
               <ul class="card-list">
@@ -129,22 +133,19 @@
         <div class="shell">
           <div class="split-head" data-reveal>
             <h2>No subscriptions, no contracts</h2>
-            <p>Free events cost nothing. On paid tickets a 5% fee is added at checkout — you never pay to list.</p>
+            <p>Free events cost nothing. On paid tickets a simple 5% is added at checkout — you never pay to list.</p>
           </div>
 
           <div class="steps">
             <article class="step" data-reveal>
-              <p class="label">Fees</p>
-              <h3>5% on ticket sales</h3>
-              <p>A single 5% fee added at checkout and settled in PKR. No monthly fees.</p>
+              <h3>5% per paid ticket</h3>
+              <p>One simple 5% added at checkout and settled in PKR. Free events stay free.</p>
             </article>
             <article class="step" data-reveal>
-              <p class="label">Payouts</p>
               <h3>Automated payouts</h3>
               <p>Payouts are processed weekly to your bank account or mobile wallet.</p>
             </article>
             <article class="step" data-reveal>
-              <p class="label">Free events</p>
               <h3>Always Rs 0</h3>
               <p>Free events stay free — no listing costs, no platform fees, no surprises.</p>
             </article>
@@ -155,7 +156,6 @@
       <section class="cta" aria-labelledby="cta-title">
         <div class="shell">
           <div class="cta-panel" data-reveal>
-            <p class="label label-light">Ready to sell tickets?</p>
             <h2 id="cta-title">Start your event for free.</h2>
             <p>Pay only when you sell paid tickets. Never to list.</p>
             <a class="pill pill-white pill-lg" href="https://app.urbanevents.pk/auth/register">Create your event</a>
@@ -166,57 +166,34 @@
 
     <footer class="footer">
       <div class="shell">
-        <div class="footer-grid">
+        <div class="footer-inner">
           <div class="footer-brand">
-            <p class="footer-statement">Sell every seat.<br />Scan every guest.</p>
             <a class="brand-mark-link" href="https://app.urbanevents.pk" aria-label="Open the Urban Events app">
               <svg class="brand-mark" width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
-                <rect width="64" height="64" rx="16" fill="#37352f" />
-                <path d="M18 21h28a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V25a4 4 0 0 1 4-4Z" fill="#ffffff" />
-                <circle cx="14" cy="32" r="4.4" fill="#37352f" />
-                <circle cx="50" cy="32" r="4.4" fill="#37352f" />
-                <path d="M31.5 24.5v15" stroke="#37352f" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.1 5.2" />
-              </svg>
+              <rect width="64" height="64" rx="16" fill="#37352f" />
+              <path d="M18 21h28a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V25a4 4 0 0 1 4-4Z" fill="#ffffff" />
+              <circle cx="14" cy="32" r="4.4" fill="#37352f" />
+              <circle cx="50" cy="32" r="4.4" fill="#37352f" />
+              <path d="M31.5 24.5v15" stroke="#37352f" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.1 5.2" />
+            </svg>
             </a>
+            <span class="footer-name">Urban Events</span>
           </div>
 
-          <div class="footer-col">
-            <h4>Platform</h4>
-            <ul>
-              <li><a href="/features">Features</a></li>
-              <li><a href="/pricing">Pricing</a></li>
-              <li><a href="/faqs">FAQs</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4>Get started</h4>
-            <ul>
-              <li><a href="https://app.urbanevents.pk/auth/register">Create an event</a></li>
-              <li><a href="https://app.urbanevents.pk">Log in</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <ul>
-              <li><a href="mailto:hello@urbanevents.pk">hello@urbanevents.pk</a></li>
-              <li><a href="https://app.urbanevents.pk">Support</a></li>
-            </ul>
-          </div>
+          <nav class="footer-nav" aria-label="Footer">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/faqs">FAQs</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="https://app.urbanevents.pk/auth/register">Create an event</a>
+            <a href="https://app.urbanevents.pk">Log in</a>
+          </nav>
         </div>
 
         <div class="footer-bottom">
           <span>© <span id="year">2026</span> Urban Events</span>
-          <span>Ticketing for Pakistan</span>
+          <a href="mailto:hello@urbanevents.pk">hello@urbanevents.pk</a>
         </div>
       </div>
     </footer>
@@ -239,6 +216,7 @@
             menuBtn.setAttribute("aria-expanded", String(open));
             menu.toggleAttribute("data-open", open);
             menuBtn.classList.toggle("is-open", open);
+            document.body.classList.toggle("nav-open", open);
           };
           menuBtn.addEventListener("click", function () {
             setOpen(menuBtn.getAttribute("aria-expanded") !== "true");
@@ -247,6 +225,12 @@
             link.addEventListener("click", function () {
               setOpen(false);
             });
+          });
+          document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") setOpen(false);
+          });
+          window.addEventListener("resize", function () {
+            if (window.innerWidth > 860) setOpen(false);
           });
         }
 
