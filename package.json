@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev --host 127.0.0.1",
-    "build": "npm run check:framer-runtime && astro build",
+    "dev": "node init && astro dev --host 127.0.0.1",
+    "build": "node init && npm run check:framer-runtime && astro build",
     "preview": "astro preview --host 127.0.0.1",
     "check:framer-runtime": "node scripts/check-framer-runtime.mjs"
   },
